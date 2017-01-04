@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Office resource:
+  # CREATE
+  get "/offices/new", :controller => "offices", :action => "new"
+  post "/create_office", :controller => "offices", :action => "create"
+
+  # READ
+  get "/offices", :controller => "offices", :action => "index"
+  get "/offices/:id", :controller => "offices", :action => "show"
+
+  # UPDATE
+  get "/offices/:id/edit", :controller => "offices", :action => "edit"
+  post "/update_office/:id", :controller => "offices", :action => "update"
+
+  # DELETE
+  get "/delete_office/:id", :controller => "offices", :action => "destroy"
+  #------------------------------
+
   # Routes for the Firm resource:
   # CREATE
   get "/firms/new", :controller => "firms", :action => "new"

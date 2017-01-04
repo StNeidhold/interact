@@ -1,0 +1,31 @@
+<div class="page-header">
+  <h3>Office #<%= @office.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Firm</dt>
+      <dd><%= @office.firm_id %></dd>
+
+      <dt>City</dt>
+      <dd><%= @office.city_id %></dd>
+
+      <dt>Firm hq</dt>
+      <dd><%= @office.firm_hq %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/offices" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/offices/<%= @office.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_office/<%= @office.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>
