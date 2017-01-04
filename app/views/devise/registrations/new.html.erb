@@ -36,6 +36,41 @@
         </div>
 
         <div class="form-group">
+            <%= f.label :gender_id, class: "col-sm-2 control-label" %>
+            <div class="col-sm-10">
+              <%= f.select(:gender_id, options_from_collection_for_select(Gender.all, :id, :gender, @user.gender_id), {}, {:class => "form-control"}) %>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :college_id, class: "col-sm-2 control-label" %>
+            <div class="col-sm-10">
+              <%= f.select(:college_id, options_from_collection_for_select(College.all, :id, :college_name, @user.college_id), {}, {:class => "form-control"}) %>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :business_school_id, class: "col-sm-2 control-label" %>
+            <div class="col-sm-10">
+              <%= f.select(:business_school_id, options_from_collection_for_select(BusinessSchool.all, :id, :business_school_name, @user.business_school_id), {}, {:class => "form-control"}) %>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :status_id, class: "col-sm-2 control-label" %>
+            <div class="col-sm-10">
+              <%= f.select(:status_id, options_from_collection_for_select(Status.all, :id, :status, @user.status_id), {}, {:class => "form-control"}) %>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :user_privacy_setting_id, class: "col-sm-2 control-label" %>
+            <div class="col-sm-10">
+              <%= f.select(:user_privacy_setting_id, options_from_collection_for_select(UserPrivacySetting.all, :id, :user_id, @user.user_privacy_setting_id), {}, {:class => "form-control"}) %>
+            </div>
+          </div>
+
+          <div class="form-group">
           <div class="col-sm-10 col-sm-offset-2">
             <%= f.submit "Sign up", class: "btn btn-success btn-block" %>
           </div>
