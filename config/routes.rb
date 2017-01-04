@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "interactions#index"
   # Routes for the Firm_recruiting_cycle resource:
   # CREATE
   get "/firm_recruiting_cycles/new", :controller => "firm_recruiting_cycles", :action => "new"
