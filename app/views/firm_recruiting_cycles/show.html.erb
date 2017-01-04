@@ -1,0 +1,31 @@
+<div class="page-header">
+  <h3>Firm Recruiting Cycle #<%= @firm_recruiting_cycle.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Firm</dt>
+      <dd><%= @firm_recruiting_cycle.firm_id %></dd>
+
+      <dt>First round start</dt>
+      <dd><%= @firm_recruiting_cycle.first_round_start %></dd>
+
+      <dt>Superday start</dt>
+      <dd><%= @firm_recruiting_cycle.superday_start %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/firm_recruiting_cycles" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/firm_recruiting_cycles/<%= @firm_recruiting_cycle.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_firm_recruiting_cycle/<%= @firm_recruiting_cycle.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

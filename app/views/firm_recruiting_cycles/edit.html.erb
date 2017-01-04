@@ -1,0 +1,55 @@
+<!-- Validation failure messages -->
+<% if @firm_recruiting_cycle.errors.any? %>
+  <% @firm_recruiting_cycle.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Firm Recruiting Cycle #<%= @firm_recruiting_cycle.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_firm_recruiting_cycle/<%= @firm_recruiting_cycle.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for firm_id -->
+      <div class="form-group">
+        <label for="firm_id" class="control-label">
+          Firm
+        </label>
+
+        <input type="text" id="firm_id" name="firm_id" placeholder="Firm" class="form-control" value="<%= @firm_recruiting_cycle.firm_id %>">
+      </div>
+
+      <!-- Label and input for first_round_start -->
+      <div class="form-group">
+        <label for="first_round_start" class="control-label">
+          First round start
+        </label>
+
+        <input type="text" id="first_round_start" name="first_round_start" placeholder="First round start" class="form-control" value="<%= @firm_recruiting_cycle.first_round_start %>">
+      </div>
+
+      <!-- Label and input for superday_start -->
+      <div class="form-group">
+        <label for="superday_start" class="control-label">
+          Superday start
+        </label>
+
+        <input type="text" id="superday_start" name="superday_start" placeholder="Superday start" class="form-control" value="<%= @firm_recruiting_cycle.superday_start %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Firm Recruiting Cycle
+      </button>
+      or
+      <a href="/firm_recruiting_cycles/<%= @firm_recruiting_cycle.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

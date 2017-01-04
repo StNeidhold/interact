@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Firm_recruiting_cycle resource:
+  # CREATE
+  get "/firm_recruiting_cycles/new", :controller => "firm_recruiting_cycles", :action => "new"
+  post "/create_firm_recruiting_cycle", :controller => "firm_recruiting_cycles", :action => "create"
+
+  # READ
+  get "/firm_recruiting_cycles", :controller => "firm_recruiting_cycles", :action => "index"
+  get "/firm_recruiting_cycles/:id", :controller => "firm_recruiting_cycles", :action => "show"
+
+  # UPDATE
+  get "/firm_recruiting_cycles/:id/edit", :controller => "firm_recruiting_cycles", :action => "edit"
+  post "/update_firm_recruiting_cycle/:id", :controller => "firm_recruiting_cycles", :action => "update"
+
+  # DELETE
+  get "/delete_firm_recruiting_cycle/:id", :controller => "firm_recruiting_cycles", :action => "destroy"
+  #------------------------------
+
   # Routes for the User_alert resource:
   # CREATE
   get "/user_alerts/new", :controller => "user_alerts", :action => "new"
