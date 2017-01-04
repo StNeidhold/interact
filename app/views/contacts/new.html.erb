@@ -42,7 +42,7 @@
           Banking title
         </label>
 
-        <input type="text" id="banking_title_id" name="banking_title_id" placeholder="Banking title" class="form-control" value="<%= @contact.banking_title_id %>">
+        <%= select_tag(:banking_title_id, options_from_collection_for_select(BankingTitle.all, :id, :firm_id, @contact.banking_title_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for firm_id -->
