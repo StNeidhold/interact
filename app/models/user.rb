@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   # Direct associations
 
+  belongs_to :business_school
+
   has_many   :interactions,
              :dependent => :destroy
 
