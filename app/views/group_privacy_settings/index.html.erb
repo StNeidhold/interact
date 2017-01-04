@@ -1,0 +1,36 @@
+<div class="page-header">
+  <h1>
+    Group privacy settings
+    <a href="/group_privacy_settings/new" class="btn btn-lg btn-success">New Group privacy setting</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>User group</th>
+        <th>Share members</th>
+        <th>Share contacts</th>
+        <th>Share events</th>
+        <th>Share interactions</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @group_privacy_settings.each do |group_privacy_setting| %>
+      <tr>
+        <td><%= group_privacy_setting.user_group_id %></td>
+        <td><%= group_privacy_setting.share_members %></td>
+        <td><%= group_privacy_setting.share_contacts %></td>
+        <td><%= group_privacy_setting.share_events %></td>
+        <td><%= group_privacy_setting.share_interactions %></td>
+        <td>
+          <a href="/group_privacy_settings/<%= group_privacy_setting.id %>" class="btn btn-primary">Show</a>
+          <a href="/group_privacy_settings/<%= group_privacy_setting.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_group_privacy_setting/<%= group_privacy_setting.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

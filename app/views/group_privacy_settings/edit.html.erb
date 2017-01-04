@@ -1,0 +1,69 @@
+<!-- Validation failure messages -->
+<% if @group_privacy_setting.errors.any? %>
+  <% @group_privacy_setting.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Group Privacy Setting #<%= @group_privacy_setting.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_group_privacy_setting/<%= @group_privacy_setting.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for user_group_id -->
+      <div class="form-group">
+        <label for="user_group_id" class="control-label">
+          User group
+        </label>
+
+        <input type="text" id="user_group_id" name="user_group_id" placeholder="User group" class="form-control" value="<%= @group_privacy_setting.user_group_id %>">
+      </div>
+
+      <!-- Label and input for share_members -->
+      <div class="checkbox">
+        <label for="share_members">
+          <input type="checkbox" id="share_members" name="share_members" value="1" <%= "checked" if @group_privacy_setting.share_members %>>
+          Share members
+        </label>
+      </div>
+
+      <!-- Label and input for share_contacts -->
+      <div class="checkbox">
+        <label for="share_contacts">
+          <input type="checkbox" id="share_contacts" name="share_contacts" value="1" <%= "checked" if @group_privacy_setting.share_contacts %>>
+          Share contacts
+        </label>
+      </div>
+
+      <!-- Label and input for share_events -->
+      <div class="checkbox">
+        <label for="share_events">
+          <input type="checkbox" id="share_events" name="share_events" value="1" <%= "checked" if @group_privacy_setting.share_events %>>
+          Share events
+        </label>
+      </div>
+
+      <!-- Label and input for share_interactions -->
+      <div class="checkbox">
+        <label for="share_interactions">
+          <input type="checkbox" id="share_interactions" name="share_interactions" value="1" <%= "checked" if @group_privacy_setting.share_interactions %>>
+          Share interactions
+        </label>
+      </div>
+
+      <button class="btn btn-warning">
+        Update Group Privacy Setting
+      </button>
+      or
+      <a href="/group_privacy_settings/<%= @group_privacy_setting.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

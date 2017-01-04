@@ -1,0 +1,37 @@
+<div class="page-header">
+  <h3>Group Privacy Setting #<%= @group_privacy_setting.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>User group</dt>
+      <dd><%= @group_privacy_setting.user_group_id %></dd>
+
+      <dt>Share members</dt>
+      <dd><%= @group_privacy_setting.share_members %></dd>
+
+      <dt>Share contacts</dt>
+      <dd><%= @group_privacy_setting.share_contacts %></dd>
+
+      <dt>Share events</dt>
+      <dd><%= @group_privacy_setting.share_events %></dd>
+
+      <dt>Share interactions</dt>
+      <dd><%= @group_privacy_setting.share_interactions %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/group_privacy_settings" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/group_privacy_settings/<%= @group_privacy_setting.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_group_privacy_setting/<%= @group_privacy_setting.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>
