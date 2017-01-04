@@ -35,3 +35,251 @@
     </div>
   </div>
 </div>
+
+<!-- A User has many group_join_requests -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Group Join Requests
+      </li>
+
+      <% @user.group_join_requests.each do |group_join_request| %>
+        <li class="list-group-item">
+          <a href="/group_join_requests/<%= group_join_request.id %>">
+            <%= group_join_request.user_group_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/group_join_requests/<%= group_join_request.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/group_join_requests/<%= group_join_request.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_group_join_request/<%= group_join_request.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A User has many user_group_members -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        User Group Members
+      </li>
+
+      <% @user.user_group_members.each do |user_group_member| %>
+        <li class="list-group-item">
+          <a href="/user_group_members/<%= user_group_member.id %>">
+            <%= user_group_member.user_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/user_group_members/<%= user_group_member.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/user_group_members/<%= user_group_member.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_user_group_member/<%= user_group_member.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A User has many recruiting_cycles -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Recruiting Cycles
+      </li>
+
+      <% @user.recruiting_cycles.each do |user_recruiting_cycle| %>
+        <li class="list-group-item">
+          <a href="/user_recruiting_cycles/<%= user_recruiting_cycle.id %>">
+            <%= user_recruiting_cycle.user_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/user_recruiting_cycles/<%= user_recruiting_cycle.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/user_recruiting_cycles/<%= user_recruiting_cycle.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_user_recruiting_cycle/<%= user_recruiting_cycle.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A User has many target_firms -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Target Firms
+      </li>
+
+      <% @user.target_firms.each do |target_firm| %>
+        <li class="list-group-item">
+          <a href="/target_firms/<%= target_firm.id %>">
+            <%= target_firm.firm_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/target_firms/<%= target_firm.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/target_firms/<%= target_firm.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_target_firm/<%= target_firm.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A User has many user_question_banks -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        User Question Banks
+      </li>
+
+      <% @user.user_question_banks.each do |user_question_bank| %>
+        <li class="list-group-item">
+          <a href="/user_question_banks/<%= user_question_bank.id %>">
+            <%= user_question_bank.user_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/user_question_banks/<%= user_question_bank.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/user_question_banks/<%= user_question_bank.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_user_question_bank/<%= user_question_bank.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A User has many user_alerts -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        User Alerts
+      </li>
+
+      <% @user.user_alerts.each do |user_alert| %>
+        <li class="list-group-item">
+          <a href="/user_alerts/<%= user_alert.id %>">
+            <%= user_alert.user_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/user_alerts/<%= user_alert.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/user_alerts/<%= user_alert.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_user_alert/<%= user_alert.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A User has many event_rsvps -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Event Rsvps
+      </li>
+
+      <% @user.event_rsvps.each do |event_rsvp| %>
+        <li class="list-group-item">
+          <a href="/event_rsvps/<%= event_rsvp.id %>">
+            <%= event_rsvp.recruiting_event_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/event_rsvps/<%= event_rsvp.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/event_rsvps/<%= event_rsvp.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_event_rsvp/<%= event_rsvp.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A User has many interactions -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Interactions
+      </li>
+
+      <% @user.interactions.each do |interaction| %>
+        <li class="list-group-item">
+          <a href="/interactions/<%= interaction.id %>">
+            <%= interaction.user_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/interactions/<%= interaction.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/interactions/<%= interaction.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_interaction/<%= interaction.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

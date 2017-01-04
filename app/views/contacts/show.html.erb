@@ -44,3 +44,34 @@
     </div>
   </div>
 </div>
+
+<!-- A Contact has many interactions -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Interactions
+      </li>
+
+      <% @contact.interactions.each do |interaction| %>
+        <li class="list-group-item">
+          <a href="/interactions/<%= interaction.id %>">
+            <%= interaction.user_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/interactions/<%= interaction.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/interactions/<%= interaction.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_interaction/<%= interaction.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

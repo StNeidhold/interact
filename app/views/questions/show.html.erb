@@ -26,3 +26,65 @@
     </div>
   </div>
 </div>
+
+<!-- A Question has many interaction_questions -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Interaction Questions
+      </li>
+
+      <% @question.interaction_questions.each do |interaction_question| %>
+        <li class="list-group-item">
+          <a href="/interaction_questions/<%= interaction_question.id %>">
+            <%= interaction_question.interaction_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/interaction_questions/<%= interaction_question.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/interaction_questions/<%= interaction_question.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_interaction_question/<%= interaction_question.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Question has many user_question_banks -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        User Question Banks
+      </li>
+
+      <% @question.user_question_banks.each do |user_question_bank| %>
+        <li class="list-group-item">
+          <a href="/user_question_banks/<%= user_question_bank.id %>">
+            <%= user_question_bank.user_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/user_question_banks/<%= user_question_bank.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/user_question_banks/<%= user_question_bank.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_user_question_bank/<%= user_question_bank.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

@@ -23,3 +23,65 @@
     </div>
   </div>
 </div>
+
+<!-- A Setting has many recruiting_events -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Recruiting Events
+      </li>
+
+      <% @setting.recruiting_events.each do |recruiting_event| %>
+        <li class="list-group-item">
+          <a href="/recruiting_events/<%= recruiting_event.id %>">
+            <%= recruiting_event.firm_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/recruiting_events/<%= recruiting_event.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/recruiting_events/<%= recruiting_event.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_recruiting_event/<%= recruiting_event.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Setting has many interactions -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Interactions
+      </li>
+
+      <% @setting.interactions.each do |interaction| %>
+        <li class="list-group-item">
+          <a href="/interactions/<%= interaction.id %>">
+            <%= interaction.user_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/interactions/<%= interaction.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/interactions/<%= interaction.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_interaction/<%= interaction.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

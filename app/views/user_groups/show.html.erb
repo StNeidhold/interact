@@ -32,3 +32,65 @@
     </div>
   </div>
 </div>
+
+<!-- A User group has many group_join_requests -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Group Join Requests
+      </li>
+
+      <% @user_group.group_join_requests.each do |group_join_request| %>
+        <li class="list-group-item">
+          <a href="/group_join_requests/<%= group_join_request.id %>">
+            <%= group_join_request.user_group_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/group_join_requests/<%= group_join_request.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/group_join_requests/<%= group_join_request.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_group_join_request/<%= group_join_request.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A User group has many user_group_members -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        User Group Members
+      </li>
+
+      <% @user_group.user_group_members.each do |user_group_member| %>
+        <li class="list-group-item">
+          <a href="/user_group_members/<%= user_group_member.id %>">
+            <%= user_group_member.user_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/user_group_members/<%= user_group_member.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/user_group_members/<%= user_group_member.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_user_group_member/<%= user_group_member.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

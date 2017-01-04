@@ -29,3 +29,34 @@
     </div>
   </div>
 </div>
+
+<!-- A Process type has many firms -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Firms
+      </li>
+
+      <% @process_type.firms.each do |firm| %>
+        <li class="list-group-item">
+          <a href="/firms/<%= firm.id %>">
+            <%= firm.name %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/firms/<%= firm.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/firms/<%= firm.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_firm/<%= firm.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

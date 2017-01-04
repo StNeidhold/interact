@@ -26,3 +26,34 @@
     </div>
   </div>
 </div>
+
+<!-- A Group access setting has many user_groups -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        User Groups
+      </li>
+
+      <% @group_access_setting.user_groups.each do |user_group| %>
+        <li class="list-group-item">
+          <a href="/user_groups/<%= user_group.id %>">
+            <%= user_group.group_access_setting_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/user_groups/<%= user_group.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/user_groups/<%= user_group.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_user_group/<%= user_group.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

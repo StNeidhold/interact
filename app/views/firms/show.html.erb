@@ -26,3 +26,220 @@
     </div>
   </div>
 </div>
+
+<!-- A Firm has many target_firms -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Target Firms
+      </li>
+
+      <% @firm.target_firms.each do |target_firm| %>
+        <li class="list-group-item">
+          <a href="/target_firms/<%= target_firm.id %>">
+            <%= target_firm.firm_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/target_firms/<%= target_firm.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/target_firms/<%= target_firm.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_target_firm/<%= target_firm.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Firm has many firm_groups -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Firm Groups
+      </li>
+
+      <% @firm.firm_groups.each do |firm_group| %>
+        <li class="list-group-item">
+          <a href="/firm_groups/<%= firm_group.id %>">
+            <%= firm_group.firm_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/firm_groups/<%= firm_group.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/firm_groups/<%= firm_group.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_firm_group/<%= firm_group.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Firm has many offices -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Offices
+      </li>
+
+      <% @firm.offices.each do |office| %>
+        <li class="list-group-item">
+          <a href="/offices/<%= office.id %>">
+            <%= office.firm_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/offices/<%= office.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/offices/<%= office.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_office/<%= office.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Firm has many banking_titles -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Banking Titles
+      </li>
+
+      <% @firm.banking_titles.each do |banking_title| %>
+        <li class="list-group-item">
+          <a href="/banking_titles/<%= banking_title.id %>">
+            <%= banking_title.firm_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/banking_titles/<%= banking_title.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/banking_titles/<%= banking_title.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_banking_title/<%= banking_title.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Firm has many recruiting_events -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Recruiting Events
+      </li>
+
+      <% @firm.recruiting_events.each do |recruiting_event| %>
+        <li class="list-group-item">
+          <a href="/recruiting_events/<%= recruiting_event.id %>">
+            <%= recruiting_event.firm_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/recruiting_events/<%= recruiting_event.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/recruiting_events/<%= recruiting_event.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_recruiting_event/<%= recruiting_event.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Firm has many contacts -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Contacts
+      </li>
+
+      <% @firm.contacts.each do |contact| %>
+        <li class="list-group-item">
+          <a href="/contacts/<%= contact.id %>">
+            <%= contact.first_name %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/contacts/<%= contact.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/contacts/<%= contact.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_contact/<%= contact.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Firm has many firm_recruiting_cycles -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Firm Recruiting Cycles
+      </li>
+
+      <% @firm.firm_recruiting_cycles.each do |firm_recruiting_cycle| %>
+        <li class="list-group-item">
+          <a href="/firm_recruiting_cycles/<%= firm_recruiting_cycle.id %>">
+            <%= firm_recruiting_cycle.firm_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/firm_recruiting_cycles/<%= firm_recruiting_cycle.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/firm_recruiting_cycles/<%= firm_recruiting_cycle.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_firm_recruiting_cycle/<%= firm_recruiting_cycle.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
