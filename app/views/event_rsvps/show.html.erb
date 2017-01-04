@@ -1,0 +1,28 @@
+<div class="page-header">
+  <h3>Event Rsvp #<%= @event_rsvp.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Recruiting event</dt>
+      <dd><%= @event_rsvp.recruiting_event_id %></dd>
+
+      <dt>User</dt>
+      <dd><%= @event_rsvp.user_id %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/event_rsvps" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/event_rsvps/<%= @event_rsvp.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_event_rsvp/<%= @event_rsvp.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

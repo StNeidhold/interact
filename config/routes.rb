@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Event_rsvp resource:
+  # CREATE
+  get "/event_rsvps/new", :controller => "event_rsvps", :action => "new"
+  post "/create_event_rsvp", :controller => "event_rsvps", :action => "create"
+
+  # READ
+  get "/event_rsvps", :controller => "event_rsvps", :action => "index"
+  get "/event_rsvps/:id", :controller => "event_rsvps", :action => "show"
+
+  # UPDATE
+  get "/event_rsvps/:id/edit", :controller => "event_rsvps", :action => "edit"
+  post "/update_event_rsvp/:id", :controller => "event_rsvps", :action => "update"
+
+  # DELETE
+  get "/delete_event_rsvp/:id", :controller => "event_rsvps", :action => "destroy"
+  #------------------------------
+
   # Routes for the User_recruiting_cycle resource:
   # CREATE
   get "/user_recruiting_cycles/new", :controller => "user_recruiting_cycles", :action => "new"
