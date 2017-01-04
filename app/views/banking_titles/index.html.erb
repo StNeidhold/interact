@@ -1,0 +1,30 @@
+<div class="page-header">
+  <h1>
+    Banking titles
+    <a href="/banking_titles/new" class="btn btn-lg btn-success">New Banking title</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Firm</th>
+        <th>Title</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @banking_titles.each do |banking_title| %>
+      <tr>
+        <td><%= banking_title.firm_id %></td>
+        <td><%= banking_title.title %></td>
+        <td>
+          <a href="/banking_titles/<%= banking_title.id %>" class="btn btn-primary">Show</a>
+          <a href="/banking_titles/<%= banking_title.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_banking_title/<%= banking_title.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

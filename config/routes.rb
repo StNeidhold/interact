@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Banking_title resource:
+  # CREATE
+  get "/banking_titles/new", :controller => "banking_titles", :action => "new"
+  post "/create_banking_title", :controller => "banking_titles", :action => "create"
+
+  # READ
+  get "/banking_titles", :controller => "banking_titles", :action => "index"
+  get "/banking_titles/:id", :controller => "banking_titles", :action => "show"
+
+  # UPDATE
+  get "/banking_titles/:id/edit", :controller => "banking_titles", :action => "edit"
+  post "/update_banking_title/:id", :controller => "banking_titles", :action => "update"
+
+  # DELETE
+  get "/delete_banking_title/:id", :controller => "banking_titles", :action => "destroy"
+  #------------------------------
+
   # Routes for the Target_firm resource:
   # CREATE
   get "/target_firms/new", :controller => "target_firms", :action => "new"
