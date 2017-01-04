@@ -1,6 +1,8 @@
 class UserGroup < ApplicationRecord
   # Direct associations
 
+  belongs_to :group_access_setting
+
   has_many   :user_group_members,
              :dependent => :destroy
 
