@@ -17,7 +17,7 @@
       <% @firms.each do |firm| %>
       <tr>
         <td><%= firm.name %></td>
-        <td><%= firm.process_type_id %></td>
+        <td><%= firm.process_type.process_type %></td>
         <td>
           <a href="/firms/<%= firm.id %>" class="btn btn-primary">Show</a>
           <a href="/firms/<%= firm.id %>/edit" class="btn btn-warning">Edit</a>
