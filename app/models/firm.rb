@@ -1,6 +1,8 @@
 class Firm < ApplicationRecord
   # Direct associations
 
+  belongs_to :process_type
+
   has_many   :firm_recruiting_cycles,
              :dependent => :destroy
 
