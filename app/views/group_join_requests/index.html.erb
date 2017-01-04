@@ -20,8 +20,11 @@
         <td><%= group_join_request.user.email %></td>
         <td>
           <a href="/group_join_requests/<%= group_join_request.id %>" class="btn btn-primary">Show</a>
-          <a href="/group_join_requests/<%= group_join_request.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_group_join_request/<%= group_join_request.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          
+          <% if current_user == group_join_request.user %>
+            <a href="/group_join_requests/<%= group_join_request.id %>/edit" class="btn btn-warning">Edit</a>
+            <a href="/delete_group_join_request/<%= group_join_request.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <% end %>
         </td>
       </tr>
       <% end %>

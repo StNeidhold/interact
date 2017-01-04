@@ -1,4 +1,14 @@
 class GroupJoinRequestsController < ApplicationController
+  before_action :current_user_must_be_group_join_request_user, :only => [:edit, :update, :destroy]
+
+  def current_user_must_be_group_join_request_user
+    group_join_request = GroupJoinRequest.find(params[:id])
+
+    unless current_user == group_join_request.user
+      redirect_to :back, :alert => "You are not authorized for that."
+    end
+  end
+
   def index
     @group_join_requests = GroupJoinRequest.all
 
