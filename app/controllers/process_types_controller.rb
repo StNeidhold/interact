@@ -1,6 +1,7 @@
 class ProcessTypesController < ApplicationController
   def index
-    @process_types = ProcessType.page(params[:page]).per(10)
+    @q = ProcessType.ransack(params[:q])
+    @process_types = @q.result(:distinct => true).includes(:firms).page(params[:page]).per(10)
 
     render("process_types/index.html.erb")
   end

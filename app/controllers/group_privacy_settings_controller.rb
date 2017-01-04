@@ -1,6 +1,7 @@
 class GroupPrivacySettingsController < ApplicationController
   def index
-    @group_privacy_settings = GroupPrivacySetting.page(params[:page]).per(10)
+    @q = GroupPrivacySetting.ransack(params[:q])
+    @group_privacy_settings = @q.result(:distinct => true).includes(:user_groups).page(params[:page]).per(10)
 
     render("group_privacy_settings/index.html.erb")
   end

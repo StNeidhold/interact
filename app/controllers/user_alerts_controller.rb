@@ -1,6 +1,7 @@
 class UserAlertsController < ApplicationController
   def index
-    @user_alerts = UserAlert.page(params[:page]).per(10)
+    @q = UserAlert.ransack(params[:q])
+    @user_alerts = @q.result(:distinct => true).includes(:user).page(params[:page]).per(10)
 
     render("user_alerts/index.html.erb")
   end

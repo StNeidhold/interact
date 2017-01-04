@@ -1,6 +1,7 @@
 class BankingTitlesController < ApplicationController
   def index
-    @banking_titles = BankingTitle.page(params[:page]).per(10)
+    @q = BankingTitle.ransack(params[:q])
+    @banking_titles = @q.result(:distinct => true).includes(:firm, :contacts).page(params[:page]).per(10)
 
     render("banking_titles/index.html.erb")
   end

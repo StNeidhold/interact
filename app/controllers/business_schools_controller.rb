@@ -1,6 +1,7 @@
 class BusinessSchoolsController < ApplicationController
   def index
-    @business_schools = BusinessSchool.page(params[:page]).per(10)
+    @q = BusinessSchool.ransack(params[:q])
+    @business_schools = @q.result(:distinct => true).includes(:users, :contacts).page(params[:page]).per(10)
 
     render("business_schools/index.html.erb")
   end

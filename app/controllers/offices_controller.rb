@@ -1,6 +1,7 @@
 class OfficesController < ApplicationController
   def index
-    @offices = Office.page(params[:page]).per(10)
+    @q = Office.ransack(params[:q])
+    @offices = @q.result(:distinct => true).includes(:firm, :city).page(params[:page]).per(10)
 
     render("offices/index.html.erb")
   end

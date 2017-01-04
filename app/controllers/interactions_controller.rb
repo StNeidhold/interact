@@ -1,6 +1,7 @@
 class InteractionsController < ApplicationController
   def index
-    @interactions = Interaction.page(params[:page]).per(10)
+    @q = Interaction.ransack(params[:q])
+    @interactions = @q.result(:distinct => true).includes(:interaction_questions, :user, :contact, :recruiting_event, :setting).page(params[:page]).per(10)
 
     render("interactions/index.html.erb")
   end

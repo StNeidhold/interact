@@ -1,6 +1,7 @@
 class FirmsController < ApplicationController
   def index
-    @firms = Firm.page(params[:page]).per(10)
+    @q = Firm.ransack(params[:q])
+    @firms = @q.result(:distinct => true).includes(:target_firms, :firm_groups, :offices, :banking_titles, :recruiting_events, :contacts, :firm_recruiting_cycles, :process_type).page(params[:page]).per(10)
 
     render("firms/index.html.erb")
   end

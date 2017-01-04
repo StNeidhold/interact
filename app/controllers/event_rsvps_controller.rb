@@ -1,6 +1,7 @@
 class EventRsvpsController < ApplicationController
   def index
-    @event_rsvps = EventRsvp.page(params[:page]).per(10)
+    @q = EventRsvp.ransack(params[:q])
+    @event_rsvps = @q.result(:distinct => true).includes(:user, :recruiting_event).page(params[:page]).per(10)
 
     render("event_rsvps/index.html.erb")
   end

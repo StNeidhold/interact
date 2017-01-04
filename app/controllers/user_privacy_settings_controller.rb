@@ -1,6 +1,7 @@
 class UserPrivacySettingsController < ApplicationController
   def index
-    @user_privacy_settings = UserPrivacySetting.page(params[:page]).per(10)
+    @q = UserPrivacySetting.ransack(params[:q])
+    @user_privacy_settings = @q.result(:distinct => true).includes(:users).page(params[:page]).per(10)
 
     render("user_privacy_settings/index.html.erb")
   end

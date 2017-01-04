@@ -1,6 +1,7 @@
 class CollegesController < ApplicationController
   def index
-    @colleges = College.page(params[:page]).per(10)
+    @q = College.ransack(params[:q])
+    @colleges = @q.result(:distinct => true).includes(:users, :contacts).page(params[:page]).per(10)
 
     render("colleges/index.html.erb")
   end

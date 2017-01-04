@@ -1,6 +1,7 @@
 class UserRecruitingCyclesController < ApplicationController
   def index
-    @user_recruiting_cycles = UserRecruitingCycle.page(params[:page]).per(10)
+    @q = UserRecruitingCycle.ransack(params[:q])
+    @user_recruiting_cycles = @q.result(:distinct => true).includes(:user).page(params[:page]).per(10)
 
     render("user_recruiting_cycles/index.html.erb")
   end

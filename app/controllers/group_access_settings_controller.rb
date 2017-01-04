@@ -1,6 +1,7 @@
 class GroupAccessSettingsController < ApplicationController
   def index
-    @group_access_settings = GroupAccessSetting.page(params[:page]).per(10)
+    @q = GroupAccessSetting.ransack(params[:q])
+    @group_access_settings = @q.result(:distinct => true).includes(:user_groups).page(params[:page]).per(10)
 
     render("group_access_settings/index.html.erb")
   end

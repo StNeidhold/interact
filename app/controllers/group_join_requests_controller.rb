@@ -10,7 +10,8 @@ class GroupJoinRequestsController < ApplicationController
   end
 
   def index
-    @group_join_requests = GroupJoinRequest.page(params[:page]).per(10)
+    @q = GroupJoinRequest.ransack(params[:q])
+    @group_join_requests = @q.result(:distinct => true).includes(:user, :user_group).page(params[:page]).per(10)
 
     render("group_join_requests/index.html.erb")
   end

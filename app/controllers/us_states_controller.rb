@@ -1,6 +1,7 @@
 class UsStatesController < ApplicationController
   def index
-    @us_states = UsState.page(params[:page]).per(10)
+    @q = UsState.ransack(params[:q])
+    @us_states = @q.result(:distinct => true).includes(:cities).page(params[:page]).per(10)
 
     render("us_states/index.html.erb")
   end

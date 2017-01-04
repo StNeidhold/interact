@@ -1,6 +1,7 @@
 class SettingsController < ApplicationController
   def index
-    @settings = Setting.page(params[:page]).per(10)
+    @q = Setting.ransack(params[:q])
+    @settings = @q.result(:distinct => true).includes(:recruiting_events, :interactions).page(params[:page]).per(10)
 
     render("settings/index.html.erb")
   end

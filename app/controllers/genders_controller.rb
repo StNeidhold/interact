@@ -1,6 +1,7 @@
 class GendersController < ApplicationController
   def index
-    @genders = Gender.page(params[:page]).per(10)
+    @q = Gender.ransack(params[:q])
+    @genders = @q.result(:distinct => true).includes(:users, :contacts).page(params[:page]).per(10)
 
     render("genders/index.html.erb")
   end
