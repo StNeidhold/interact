@@ -1,5 +1,7 @@
 ActiveAdmin.register Interaction do
 
+ permit_params :user_id, :contact_id, :setting_id, :date, :recruiting_event_id, :time, :location, :notes
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
