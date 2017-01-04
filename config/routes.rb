@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Setting resource:
+  # CREATE
+  get "/settings/new", :controller => "settings", :action => "new"
+  post "/create_setting", :controller => "settings", :action => "create"
+
+  # READ
+  get "/settings", :controller => "settings", :action => "index"
+  get "/settings/:id", :controller => "settings", :action => "show"
+
+  # UPDATE
+  get "/settings/:id/edit", :controller => "settings", :action => "edit"
+  post "/update_setting/:id", :controller => "settings", :action => "update"
+
+  # DELETE
+  get "/delete_setting/:id", :controller => "settings", :action => "destroy"
+  #------------------------------
+
   # Routes for the Process_type resource:
   # CREATE
   get "/process_types/new", :controller => "process_types", :action => "new"
