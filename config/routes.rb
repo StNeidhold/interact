@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Firm_group resource:
+  # CREATE
+  get "/firm_groups/new", :controller => "firm_groups", :action => "new"
+  post "/create_firm_group", :controller => "firm_groups", :action => "create"
+
+  # READ
+  get "/firm_groups", :controller => "firm_groups", :action => "index"
+  get "/firm_groups/:id", :controller => "firm_groups", :action => "show"
+
+  # UPDATE
+  get "/firm_groups/:id/edit", :controller => "firm_groups", :action => "edit"
+  post "/update_firm_group/:id", :controller => "firm_groups", :action => "update"
+
+  # DELETE
+  get "/delete_firm_group/:id", :controller => "firm_groups", :action => "destroy"
+  #------------------------------
+
   # Routes for the City resource:
   # CREATE
   get "/cities/new", :controller => "cities", :action => "new"

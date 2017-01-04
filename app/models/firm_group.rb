@@ -1,0 +1,8 @@
+class FirmGroup < ApplicationRecord
+  # Direct associations
+
+  # Indirect associations
+
+  # Validations
+
+end
