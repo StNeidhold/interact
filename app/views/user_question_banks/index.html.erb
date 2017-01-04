@@ -1,0 +1,30 @@
+<div class="page-header">
+  <h1>
+    User question banks
+    <a href="/user_question_banks/new" class="btn btn-lg btn-success">New User question bank</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>User</th>
+        <th>Question</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @user_question_banks.each do |user_question_bank| %>
+      <tr>
+        <td><%= user_question_bank.user_id %></td>
+        <td><%= user_question_bank.question_id %></td>
+        <td>
+          <a href="/user_question_banks/<%= user_question_bank.id %>" class="btn btn-primary">Show</a>
+          <a href="/user_question_banks/<%= user_question_bank.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_user_question_bank/<%= user_question_bank.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

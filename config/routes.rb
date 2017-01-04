@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the User_question_bank resource:
+  # CREATE
+  get "/user_question_banks/new", :controller => "user_question_banks", :action => "new"
+  post "/create_user_question_bank", :controller => "user_question_banks", :action => "create"
+
+  # READ
+  get "/user_question_banks", :controller => "user_question_banks", :action => "index"
+  get "/user_question_banks/:id", :controller => "user_question_banks", :action => "show"
+
+  # UPDATE
+  get "/user_question_banks/:id/edit", :controller => "user_question_banks", :action => "edit"
+  post "/update_user_question_bank/:id", :controller => "user_question_banks", :action => "update"
+
+  # DELETE
+  get "/delete_user_question_bank/:id", :controller => "user_question_banks", :action => "destroy"
+  #------------------------------
+
   # Routes for the Interaction_question resource:
   # CREATE
   get "/interaction_questions/new", :controller => "interaction_questions", :action => "new"
