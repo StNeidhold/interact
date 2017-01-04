@@ -1,6 +1,9 @@
 class BusinessSchool < ApplicationRecord
   # Direct associations
 
+  has_many   :contacts,
+             :dependent => :nullify
+
   has_many   :users,
              :dependent => :nullify
 
