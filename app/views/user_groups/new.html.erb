@@ -51,7 +51,7 @@
           Group privacy setting
         </label>
 
-        <input type="text" id="group_privacy_setting_id" name="group_privacy_setting_id" placeholder="Group privacy setting" class="form-control" value="<%= @user_group.group_privacy_setting_id %>">
+        <%= select_tag(:group_privacy_setting_id, options_from_collection_for_select(GroupPrivacySetting.all, :id, :user_group_id, @user_group.group_privacy_setting_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-success">
