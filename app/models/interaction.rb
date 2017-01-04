@@ -1,6 +1,8 @@
 class Interaction < ApplicationRecord
   # Direct associations
 
+  belongs_to :setting
+
   belongs_to :recruiting_event
 
   belongs_to :contact
