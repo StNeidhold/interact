@@ -1,6 +1,8 @@
 class RecruitingEvent < ApplicationRecord
   # Direct associations
 
+  has_many   :interactions
+
   has_many   :event_rsvps,
              :dependent => :destroy
 
