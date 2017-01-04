@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   # Direct associations
 
+  belongs_to :user_privacy_setting
+
   belongs_to :status
 
   belongs_to :gender
