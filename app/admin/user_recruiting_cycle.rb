@@ -1,5 +1,7 @@
 ActiveAdmin.register UserRecruitingCycle do
 
+ permit_params :user_id, :start_date, :end_date, :name, :is_active
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
