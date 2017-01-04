@@ -69,7 +69,7 @@
           College
         </label>
 
-        <input type="text" id="college_id" name="college_id" placeholder="College" class="form-control" value="<%= @contact.college_id %>">
+        <%= select_tag(:college_id, options_from_collection_for_select(College.all, :id, :college_name, @contact.college_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for business_school_id -->
