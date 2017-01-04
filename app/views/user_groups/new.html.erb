@@ -1,0 +1,64 @@
+<!-- Validation failure messages -->
+<% if @user_group.errors.any? %>
+  <% @user_group.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add User Group</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_user_group" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for group_access_setting_id -->
+      <div class="form-group">
+        <label for="group_access_setting_id" class="control-label">
+          Group access setting
+        </label>
+
+        <input type="text" id="group_access_setting_id" name="group_access_setting_id" placeholder="Group access setting" class="form-control" value="<%= @user_group.group_access_setting_id %>">
+      </div>
+
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @user_group.name %>">
+      </div>
+
+      <!-- Label and input for description -->
+      <div class="form-group">
+        <label for="description" class="control-label">
+          Description
+        </label>
+
+        <input type="text" id="description" name="description" placeholder="Description" class="form-control" value="<%= @user_group.description %>">
+      </div>
+
+      <!-- Label and input for group_privacy_setting_id -->
+      <div class="form-group">
+        <label for="group_privacy_setting_id" class="control-label">
+          Group privacy setting
+        </label>
+
+        <input type="text" id="group_privacy_setting_id" name="group_privacy_setting_id" placeholder="Group privacy setting" class="form-control" value="<%= @user_group.group_privacy_setting_id %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create User Group
+      </button>
+      or
+      <a href="/user_groups">Cancel</a>
+    </form>
+  </div>
+</div>

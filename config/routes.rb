@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the User_group resource:
+  # CREATE
+  get "/user_groups/new", :controller => "user_groups", :action => "new"
+  post "/create_user_group", :controller => "user_groups", :action => "create"
+
+  # READ
+  get "/user_groups", :controller => "user_groups", :action => "index"
+  get "/user_groups/:id", :controller => "user_groups", :action => "show"
+
+  # UPDATE
+  get "/user_groups/:id/edit", :controller => "user_groups", :action => "edit"
+  post "/update_user_group/:id", :controller => "user_groups", :action => "update"
+
+  # DELETE
+  get "/delete_user_group/:id", :controller => "user_groups", :action => "destroy"
+  #------------------------------
+
   # Routes for the Firm_group resource:
   # CREATE
   get "/firm_groups/new", :controller => "firm_groups", :action => "new"
