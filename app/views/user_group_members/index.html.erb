@@ -18,7 +18,7 @@
       <% @user_group_members.each do |user_group_member| %>
       <tr>
         <td><%= user_group_member.user.email %></td>
-        <td><%= user_group_member.user_group_id %></td>
+        <td><%= user_group_member.user_group.group_access_setting_id %></td>
         <td><%= user_group_member.is_admin %></td>
         <td>
           <a href="/user_group_members/<%= user_group_member.id %>" class="btn btn-primary">Show</a>
