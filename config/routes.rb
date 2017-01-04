@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the User_recruiting_cycle resource:
+  # CREATE
+  get "/user_recruiting_cycles/new", :controller => "user_recruiting_cycles", :action => "new"
+  post "/create_user_recruiting_cycle", :controller => "user_recruiting_cycles", :action => "create"
+
+  # READ
+  get "/user_recruiting_cycles", :controller => "user_recruiting_cycles", :action => "index"
+  get "/user_recruiting_cycles/:id", :controller => "user_recruiting_cycles", :action => "show"
+
+  # UPDATE
+  get "/user_recruiting_cycles/:id/edit", :controller => "user_recruiting_cycles", :action => "edit"
+  post "/update_user_recruiting_cycle/:id", :controller => "user_recruiting_cycles", :action => "update"
+
+  # DELETE
+  get "/delete_user_recruiting_cycle/:id", :controller => "user_recruiting_cycles", :action => "destroy"
+  #------------------------------
+
   # Routes for the Gender resource:
   # CREATE
   get "/genders/new", :controller => "genders", :action => "new"
