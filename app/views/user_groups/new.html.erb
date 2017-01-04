@@ -24,7 +24,7 @@
           Group access setting
         </label>
 
-        <input type="text" id="group_access_setting_id" name="group_access_setting_id" placeholder="Group access setting" class="form-control" value="<%= @user_group.group_access_setting_id %>">
+        <%= select_tag(:group_access_setting_id, options_from_collection_for_select(GroupAccessSetting.all, :id, :acessibility, @user_group.group_access_setting_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for name -->
