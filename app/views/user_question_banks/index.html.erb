@@ -16,7 +16,7 @@
 
       <% @user_question_banks.each do |user_question_bank| %>
       <tr>
-        <td><%= user_question_bank.user_id %></td>
+        <td><%= user_question_bank.user.email %></td>
         <td><%= user_question_bank.question_id %></td>
         <td>
           <a href="/user_question_banks/<%= user_question_bank.id %>" class="btn btn-primary">Show</a>
