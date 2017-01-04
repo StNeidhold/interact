@@ -60,7 +60,7 @@
           Gender
         </label>
 
-        <input type="text" id="gender_id" name="gender_id" placeholder="Gender" class="form-control" value="<%= @contact.gender_id %>">
+        <%= select_tag(:gender_id, options_from_collection_for_select(Gender.all, :id, :gender, @contact.gender_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for college_id -->
