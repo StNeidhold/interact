@@ -1,6 +1,10 @@
 class User < ApplicationRecord
   # Direct associations
 
+  has_many   :recruiting_cycles,
+             :class_name => "UserRecruitingCycle",
+             :dependent => :destroy
+
   has_many   :user_group_members,
              :dependent => :destroy
 
