@@ -1,0 +1,46 @@
+<!-- Validation failure messages -->
+<% if @question.errors.any? %>
+  <% @question.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Question</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_question" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for stem -->
+      <div class="form-group">
+        <label for="stem" class="control-label">
+          Stem
+        </label>
+
+        <input type="text" id="stem" name="stem" placeholder="Stem" class="form-control" value="<%= @question.stem %>">
+      </div>
+
+      <!-- Label and input for tags -->
+      <div class="form-group">
+        <label for="tags" class="control-label">
+          Tags
+        </label>
+
+        <input type="text" id="tags" name="tags" placeholder="Tags" class="form-control" value="<%= @question.tags %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Question
+      </button>
+      or
+      <a href="/questions">Cancel</a>
+    </form>
+  </div>
+</div>
