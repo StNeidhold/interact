@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   root :to => "interactions#index"
   # Routes for the Firm_recruiting_cycle resource:
   # CREATE
