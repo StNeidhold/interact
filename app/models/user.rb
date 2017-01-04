@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   # Direct associations
 
+  belongs_to :status
+
   belongs_to :gender
 
   belongs_to :college
