@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the User_group_member resource:
+  # CREATE
+  get "/user_group_members/new", :controller => "user_group_members", :action => "new"
+  post "/create_user_group_member", :controller => "user_group_members", :action => "create"
+
+  # READ
+  get "/user_group_members", :controller => "user_group_members", :action => "index"
+  get "/user_group_members/:id", :controller => "user_group_members", :action => "show"
+
+  # UPDATE
+  get "/user_group_members/:id/edit", :controller => "user_group_members", :action => "edit"
+  post "/update_user_group_member/:id", :controller => "user_group_members", :action => "update"
+
+  # DELETE
+  get "/delete_user_group_member/:id", :controller => "user_group_members", :action => "destroy"
+  #------------------------------
+
   # Routes for the User_group resource:
   # CREATE
   get "/user_groups/new", :controller => "user_groups", :action => "new"
