@@ -1,0 +1,46 @@
+<div class="page-header">
+  <h3>Interaction #<%= @interaction.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>User</dt>
+      <dd><%= @interaction.user_id %></dd>
+
+      <dt>Contact</dt>
+      <dd><%= @interaction.contact_id %></dd>
+
+      <dt>Setting</dt>
+      <dd><%= @interaction.setting_id %></dd>
+
+      <dt>Date</dt>
+      <dd><%= @interaction.date %></dd>
+
+      <dt>Recruiting event</dt>
+      <dd><%= @interaction.recruiting_event_id %></dd>
+
+      <dt>Time</dt>
+      <dd><%= @interaction.time %></dd>
+
+      <dt>Location</dt>
+      <dd><%= @interaction.location %></dd>
+
+      <dt>Notes</dt>
+      <dd><%= @interaction.notes %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/interactions" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/interactions/<%= @interaction.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_interaction/<%= @interaction.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>
