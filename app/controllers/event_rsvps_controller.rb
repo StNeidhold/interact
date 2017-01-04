@@ -1,6 +1,6 @@
 class EventRsvpsController < ApplicationController
   def index
-    @event_rsvps = EventRsvp.all
+    @event_rsvps = EventRsvp.page(params[:page]).per(10)
 
     render("event_rsvps/index.html.erb")
   end

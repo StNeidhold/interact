@@ -1,6 +1,6 @@
 class UsStatesController < ApplicationController
   def index
-    @us_states = UsState.all
+    @us_states = UsState.page(params[:page]).per(10)
 
     render("us_states/index.html.erb")
   end

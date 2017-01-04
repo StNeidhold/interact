@@ -1,6 +1,6 @@
 class FirmRecruitingCyclesController < ApplicationController
   def index
-    @firm_recruiting_cycles = FirmRecruitingCycle.all
+    @firm_recruiting_cycles = FirmRecruitingCycle.page(params[:page]).per(10)
 
     render("firm_recruiting_cycles/index.html.erb")
   end

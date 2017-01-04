@@ -1,6 +1,6 @@
 class UserPrivacySettingsController < ApplicationController
   def index
-    @user_privacy_settings = UserPrivacySetting.all
+    @user_privacy_settings = UserPrivacySetting.page(params[:page]).per(10)
 
     render("user_privacy_settings/index.html.erb")
   end

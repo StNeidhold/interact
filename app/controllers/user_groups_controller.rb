@@ -1,6 +1,6 @@
 class UserGroupsController < ApplicationController
   def index
-    @user_groups = UserGroup.all
+    @user_groups = UserGroup.page(params[:page]).per(10)
 
     render("user_groups/index.html.erb")
   end

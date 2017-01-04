@@ -1,6 +1,6 @@
 class InteractionQuestionsController < ApplicationController
   def index
-    @interaction_questions = InteractionQuestion.all
+    @interaction_questions = InteractionQuestion.page(params[:page]).per(10)
 
     render("interaction_questions/index.html.erb")
   end

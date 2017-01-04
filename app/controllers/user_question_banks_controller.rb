@@ -1,6 +1,6 @@
 class UserQuestionBanksController < ApplicationController
   def index
-    @user_question_banks = UserQuestionBank.all
+    @user_question_banks = UserQuestionBank.page(params[:page]).per(10)
 
     render("user_question_banks/index.html.erb")
   end

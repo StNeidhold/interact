@@ -1,6 +1,6 @@
 class BankingTitlesController < ApplicationController
   def index
-    @banking_titles = BankingTitle.all
+    @banking_titles = BankingTitle.page(params[:page]).per(10)
 
     render("banking_titles/index.html.erb")
   end

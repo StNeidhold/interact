@@ -1,6 +1,6 @@
 class UserAlertsController < ApplicationController
   def index
-    @user_alerts = UserAlert.all
+    @user_alerts = UserAlert.page(params[:page]).per(10)
 
     render("user_alerts/index.html.erb")
   end

@@ -10,7 +10,7 @@ class GroupJoinRequestsController < ApplicationController
   end
 
   def index
-    @group_join_requests = GroupJoinRequest.all
+    @group_join_requests = GroupJoinRequest.page(params[:page]).per(10)
 
     render("group_join_requests/index.html.erb")
   end

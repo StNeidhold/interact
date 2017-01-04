@@ -1,6 +1,6 @@
 class InteractionsController < ApplicationController
   def index
-    @interactions = Interaction.all
+    @interactions = Interaction.page(params[:page]).per(10)
 
     render("interactions/index.html.erb")
   end

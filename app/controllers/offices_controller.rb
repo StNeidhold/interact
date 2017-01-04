@@ -1,6 +1,6 @@
 class OfficesController < ApplicationController
   def index
-    @offices = Office.all
+    @offices = Office.page(params[:page]).per(10)
 
     render("offices/index.html.erb")
   end

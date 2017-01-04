@@ -1,6 +1,6 @@
 class GroupPrivacySettingsController < ApplicationController
   def index
-    @group_privacy_settings = GroupPrivacySetting.all
+    @group_privacy_settings = GroupPrivacySetting.page(params[:page]).per(10)
 
     render("group_privacy_settings/index.html.erb")
   end

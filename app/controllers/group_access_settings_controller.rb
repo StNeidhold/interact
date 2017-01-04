@@ -1,6 +1,6 @@
 class GroupAccessSettingsController < ApplicationController
   def index
-    @group_access_settings = GroupAccessSetting.all
+    @group_access_settings = GroupAccessSetting.page(params[:page]).per(10)
 
     render("group_access_settings/index.html.erb")
   end

@@ -1,6 +1,6 @@
 class UserRecruitingCyclesController < ApplicationController
   def index
-    @user_recruiting_cycles = UserRecruitingCycle.all
+    @user_recruiting_cycles = UserRecruitingCycle.page(params[:page]).per(10)
 
     render("user_recruiting_cycles/index.html.erb")
   end
