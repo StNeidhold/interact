@@ -24,7 +24,7 @@
           Interaction
         </label>
 
-        <input type="text" id="interaction_id" name="interaction_id" placeholder="Interaction" class="form-control" value="<%= @interaction_question.interaction_id %>">
+        <%= select_tag(:interaction_id, options_from_collection_for_select(Interaction.all, :id, :user_id, @interaction_question.interaction_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for question_id -->
