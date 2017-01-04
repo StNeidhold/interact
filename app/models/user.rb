@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   # Direct associations
 
+  has_many   :user_question_banks,
+             :dependent => :destroy
+
   has_many   :target_firms,
              :dependent => :destroy
 
