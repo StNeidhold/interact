@@ -17,7 +17,7 @@
       <% @interaction_questions.each do |interaction_question| %>
       <tr>
         <td><%= interaction_question.interaction.user_id %></td>
-        <td><%= interaction_question.question_id %></td>
+        <td><%= interaction_question.question.stem %></td>
         <td>
           <a href="/interaction_questions/<%= interaction_question.id %>" class="btn btn-primary">Show</a>
           <a href="/interaction_questions/<%= interaction_question.id %>/edit" class="btn btn-warning">Edit</a>
