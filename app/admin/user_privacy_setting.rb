@@ -1,5 +1,7 @@
 ActiveAdmin.register UserPrivacySetting do
 
+ permit_params :user_id, :share_contacts, :share_interactions, :share_events
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
