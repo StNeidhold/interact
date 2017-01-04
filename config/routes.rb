@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the User_privacy_setting resource:
+  # CREATE
+  get "/user_privacy_settings/new", :controller => "user_privacy_settings", :action => "new"
+  post "/create_user_privacy_setting", :controller => "user_privacy_settings", :action => "create"
+
+  # READ
+  get "/user_privacy_settings", :controller => "user_privacy_settings", :action => "index"
+  get "/user_privacy_settings/:id", :controller => "user_privacy_settings", :action => "show"
+
+  # UPDATE
+  get "/user_privacy_settings/:id/edit", :controller => "user_privacy_settings", :action => "edit"
+  post "/update_user_privacy_setting/:id", :controller => "user_privacy_settings", :action => "update"
+
+  # DELETE
+  get "/delete_user_privacy_setting/:id", :controller => "user_privacy_settings", :action => "destroy"
+  #------------------------------
+
   # Routes for the Group_privacy_setting resource:
   # CREATE
   get "/group_privacy_settings/new", :controller => "group_privacy_settings", :action => "new"
