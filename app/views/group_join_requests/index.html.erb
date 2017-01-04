@@ -17,7 +17,7 @@
       <% @group_join_requests.each do |group_join_request| %>
       <tr>
         <td><%= group_join_request.user_group.group_access_setting_id %></td>
-        <td><%= group_join_request.user_id %></td>
+        <td><%= group_join_request.user.email %></td>
         <td>
           <a href="/group_join_requests/<%= group_join_request.id %>" class="btn btn-primary">Show</a>
           <a href="/group_join_requests/<%= group_join_request.id %>/edit" class="btn btn-warning">Edit</a>
