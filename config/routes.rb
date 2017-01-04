@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Us_state resource:
+  # CREATE
+  get "/us_states/new", :controller => "us_states", :action => "new"
+  post "/create_us_state", :controller => "us_states", :action => "create"
+
+  # READ
+  get "/us_states", :controller => "us_states", :action => "index"
+  get "/us_states/:id", :controller => "us_states", :action => "show"
+
+  # UPDATE
+  get "/us_states/:id/edit", :controller => "us_states", :action => "edit"
+  post "/update_us_state/:id", :controller => "us_states", :action => "update"
+
+  # DELETE
+  get "/delete_us_state/:id", :controller => "us_states", :action => "destroy"
+  #------------------------------
+
   # Routes for the User_question_bank resource:
   # CREATE
   get "/user_question_banks/new", :controller => "user_question_banks", :action => "new"
