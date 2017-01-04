@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the College resource:
+  # CREATE
+  get "/colleges/new", :controller => "colleges", :action => "new"
+  post "/create_college", :controller => "colleges", :action => "create"
+
+  # READ
+  get "/colleges", :controller => "colleges", :action => "index"
+  get "/colleges/:id", :controller => "colleges", :action => "show"
+
+  # UPDATE
+  get "/colleges/:id/edit", :controller => "colleges", :action => "edit"
+  post "/update_college/:id", :controller => "colleges", :action => "update"
+
+  # DELETE
+  get "/delete_college/:id", :controller => "colleges", :action => "destroy"
+  #------------------------------
+
   # Routes for the Business_school resource:
   # CREATE
   get "/business_schools/new", :controller => "business_schools", :action => "new"
