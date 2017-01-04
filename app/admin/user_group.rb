@@ -1,5 +1,7 @@
 ActiveAdmin.register UserGroup do
 
+ permit_params :group_access_setting_id, :name, :description, :group_privacy_setting_id
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
