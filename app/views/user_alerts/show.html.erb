@@ -1,0 +1,28 @@
+<div class="page-header">
+  <h3>User Alert #<%= @user_alert.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>User</dt>
+      <dd><%= @user_alert.user_id %></dd>
+
+      <dt>Alert text</dt>
+      <dd><%= @user_alert.alert_text %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/user_alerts" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/user_alerts/<%= @user_alert.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_user_alert/<%= @user_alert.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

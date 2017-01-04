@@ -1,0 +1,8 @@
+class UserAlert < ApplicationRecord
+  # Direct associations
+
+  # Indirect associations
+
+  # Validations
+
+end

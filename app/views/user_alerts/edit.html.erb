@@ -1,0 +1,46 @@
+<!-- Validation failure messages -->
+<% if @user_alert.errors.any? %>
+  <% @user_alert.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit User Alert #<%= @user_alert.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_user_alert/<%= @user_alert.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @user_alert.user_id %>">
+      </div>
+
+      <!-- Label and input for alert_text -->
+      <div class="form-group">
+        <label for="alert_text" class="control-label">
+          Alert text
+        </label>
+
+        <input type="text" id="alert_text" name="alert_text" placeholder="Alert text" class="form-control" value="<%= @user_alert.alert_text %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update User Alert
+      </button>
+      or
+      <a href="/user_alerts/<%= @user_alert.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

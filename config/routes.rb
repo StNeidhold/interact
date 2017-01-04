@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the User_alert resource:
+  # CREATE
+  get "/user_alerts/new", :controller => "user_alerts", :action => "new"
+  post "/create_user_alert", :controller => "user_alerts", :action => "create"
+
+  # READ
+  get "/user_alerts", :controller => "user_alerts", :action => "index"
+  get "/user_alerts/:id", :controller => "user_alerts", :action => "show"
+
+  # UPDATE
+  get "/user_alerts/:id/edit", :controller => "user_alerts", :action => "edit"
+  post "/update_user_alert/:id", :controller => "user_alerts", :action => "update"
+
+  # DELETE
+  get "/delete_user_alert/:id", :controller => "user_alerts", :action => "destroy"
+  #------------------------------
+
   # Routes for the Country resource:
   # CREATE
   get "/countries/new", :controller => "countries", :action => "new"

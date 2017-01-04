@@ -1,0 +1,30 @@
+<div class="page-header">
+  <h1>
+    User alerts
+    <a href="/user_alerts/new" class="btn btn-lg btn-success">New User alert</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>User</th>
+        <th>Alert text</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @user_alerts.each do |user_alert| %>
+      <tr>
+        <td><%= user_alert.user_id %></td>
+        <td><%= user_alert.alert_text %></td>
+        <td>
+          <a href="/user_alerts/<%= user_alert.id %>" class="btn btn-primary">Show</a>
+          <a href="/user_alerts/<%= user_alert.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_user_alert/<%= user_alert.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
