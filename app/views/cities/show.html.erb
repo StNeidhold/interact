@@ -57,6 +57,37 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_office" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for firm_id -->
+      <div class="form-group">
+        <label for="firm_id" class="control-label">
+          Firm
+        </label>
+
+        <%= select_tag(:firm_id, options_from_collection_for_select(Firm.all, :id, :name), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for city_id -->
+      <input type="hidden" name="city_id" value="<%= @city.id %>">
+
+      <!-- Label and input for firm_hq -->
+      <div class="checkbox">
+        <label for="firm_hq">
+          <input type="checkbox" id="firm_hq" name="firm_hq" value="1" <%= "checked" if @office.firm_hq %>>
+          Firm hq
+        </label>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Office
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

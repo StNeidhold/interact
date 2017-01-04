@@ -6,6 +6,8 @@ class UserGroupsController < ApplicationController
   end
 
   def show
+    @user_group_member = UserGroupMember.new
+    @group_join_request = GroupJoinRequest.new
     @user_group = UserGroup.find(params[:id])
 
     render("user_groups/show.html.erb")

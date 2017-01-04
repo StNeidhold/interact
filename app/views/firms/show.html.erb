@@ -54,6 +54,29 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_target_firm" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for firm_id -->
+      <input type="hidden" name="firm_id" value="<%= @firm.id %>">
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <%= select_tag(:user_id, options_from_collection_for_select(User.all, :id, :email), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Target Firm
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -85,6 +108,29 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_firm_group" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for firm_id -->
+      <input type="hidden" name="firm_id" value="<%= @firm.id %>">
+
+      <!-- Label and input for group_name -->
+      <div class="form-group">
+        <label for="group_name" class="control-label">
+          Group name
+        </label>
+
+        <input type="text" id="group_name" name="group_name" placeholder="Group name" class="form-control" value="">
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Firm Group
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -116,6 +162,37 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_office" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for firm_id -->
+      <input type="hidden" name="firm_id" value="<%= @firm.id %>">
+
+      <!-- Label and input for city_id -->
+      <div class="form-group">
+        <label for="city_id" class="control-label">
+          City
+        </label>
+
+        <%= select_tag(:city_id, options_from_collection_for_select(City.all, :id, :city_name), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for firm_hq -->
+      <div class="checkbox">
+        <label for="firm_hq">
+          <input type="checkbox" id="firm_hq" name="firm_hq" value="1" <%= "checked" if @office.firm_hq %>>
+          Firm hq
+        </label>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Office
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -147,6 +224,29 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_banking_title" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for firm_id -->
+      <input type="hidden" name="firm_id" value="<%= @firm.id %>">
+
+      <!-- Label and input for title -->
+      <div class="form-group">
+        <label for="title" class="control-label">
+          Title
+        </label>
+
+        <input type="text" id="title" name="title" placeholder="Title" class="form-control" value="">
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Banking Title
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -178,6 +278,73 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_recruiting_event" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for firm_id -->
+      <input type="hidden" name="firm_id" value="<%= @firm.id %>">
+
+      <!-- Label and input for setting_id -->
+      <div class="form-group">
+        <label for="setting_id" class="control-label">
+          Setting
+        </label>
+
+        <%= select_tag(:setting_id, options_from_collection_for_select(Setting.all, :id, :name), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for location -->
+      <div class="form-group">
+        <label for="location" class="control-label">
+          Location
+        </label>
+
+        <input type="text" id="location" name="location" placeholder="Location" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for date -->
+      <div class="form-group">
+        <label for="date" class="control-label">
+          Date
+        </label>
+
+        <input type="text" id="date" name="date" placeholder="Date" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for time -->
+      <div class="form-group">
+        <label for="time" class="control-label">
+          Time
+        </label>
+
+        <input type="text" id="time" name="time" placeholder="Time" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for is_closed -->
+      <div class="checkbox">
+        <label for="is_closed">
+          <input type="checkbox" id="is_closed" name="is_closed" value="1" <%= "checked" if @recruiting_event.is_closed %>>
+          Is closed
+        </label>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Recruiting Event
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -209,6 +376,83 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_contact" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for first_name -->
+      <div class="form-group">
+        <label for="first_name" class="control-label">
+          First name
+        </label>
+
+        <input type="text" id="first_name" name="first_name" placeholder="First name" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for last_name -->
+      <div class="form-group">
+        <label for="last_name" class="control-label">
+          Last name
+        </label>
+
+        <input type="text" id="last_name" name="last_name" placeholder="Last name" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for banking_title_id -->
+      <div class="form-group">
+        <label for="banking_title_id" class="control-label">
+          Banking title
+        </label>
+
+        <%= select_tag(:banking_title_id, options_from_collection_for_select(BankingTitle.all, :id, :firm_id), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for firm_id -->
+      <input type="hidden" name="firm_id" value="<%= @firm.id %>">
+
+      <!-- Label and input for gender_id -->
+      <div class="form-group">
+        <label for="gender_id" class="control-label">
+          Gender
+        </label>
+
+        <%= select_tag(:gender_id, options_from_collection_for_select(Gender.all, :id, :gender), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for college_id -->
+      <div class="form-group">
+        <label for="college_id" class="control-label">
+          College
+        </label>
+
+        <%= select_tag(:college_id, options_from_collection_for_select(College.all, :id, :college_name), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for business_school_id -->
+      <div class="form-group">
+        <label for="business_school_id" class="control-label">
+          Business school
+        </label>
+
+        <%= select_tag(:business_school_id, options_from_collection_for_select(BusinessSchool.all, :id, :business_school_name), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for firm_group_id -->
+      <div class="form-group">
+        <label for="firm_group_id" class="control-label">
+          Firm group
+        </label>
+
+        <%= select_tag(:firm_group_id, options_from_collection_for_select(FirmGroup.all, :id, :firm_id), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Contact
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -240,6 +484,38 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_firm_recruiting_cycle" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for firm_id -->
+      <input type="hidden" name="firm_id" value="<%= @firm.id %>">
+
+      <!-- Label and input for first_round_start -->
+      <div class="form-group">
+        <label for="first_round_start" class="control-label">
+          First round start
+        </label>
+
+        <input type="text" id="first_round_start" name="first_round_start" placeholder="First round start" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for superday_start -->
+      <div class="form-group">
+        <label for="superday_start" class="control-label">
+          Superday start
+        </label>
+
+        <input type="text" id="superday_start" name="superday_start" placeholder="Superday start" class="form-control" value="">
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Firm Recruiting Cycle
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

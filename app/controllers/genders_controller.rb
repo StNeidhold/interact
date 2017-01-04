@@ -6,6 +6,8 @@ class GendersController < ApplicationController
   end
 
   def show
+    @contact = Contact.new
+    @user = User.new
     @gender = Gender.find(params[:id])
 
     render("genders/show.html.erb")

@@ -6,6 +6,8 @@ class SettingsController < ApplicationController
   end
 
   def show
+    @interaction = Interaction.new
+    @recruiting_event = RecruitingEvent.new
     @setting = Setting.find(params[:id])
 
     render("settings/show.html.erb")

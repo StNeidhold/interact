@@ -6,6 +6,7 @@ class GroupAccessSettingsController < ApplicationController
   end
 
   def show
+    @user_group = UserGroup.new
     @group_access_setting = GroupAccessSetting.find(params[:id])
 
     render("group_access_settings/show.html.erb")

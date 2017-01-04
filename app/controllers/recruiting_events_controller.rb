@@ -6,6 +6,8 @@ class RecruitingEventsController < ApplicationController
   end
 
   def show
+    @interaction = Interaction.new
+    @event_rsvp = EventRsvp.new
     @recruiting_event = RecruitingEvent.find(params[:id])
 
     render("recruiting_events/show.html.erb")

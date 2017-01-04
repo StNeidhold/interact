@@ -6,6 +6,7 @@ class UsStatesController < ApplicationController
   end
 
   def show
+    @city = City.new
     @us_state = UsState.find(params[:id])
 
     render("us_states/show.html.erb")

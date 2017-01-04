@@ -51,6 +51,73 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_recruiting_event" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for firm_id -->
+      <div class="form-group">
+        <label for="firm_id" class="control-label">
+          Firm
+        </label>
+
+        <%= select_tag(:firm_id, options_from_collection_for_select(Firm.all, :id, :name), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for setting_id -->
+      <input type="hidden" name="setting_id" value="<%= @setting.id %>">
+
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for location -->
+      <div class="form-group">
+        <label for="location" class="control-label">
+          Location
+        </label>
+
+        <input type="text" id="location" name="location" placeholder="Location" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for date -->
+      <div class="form-group">
+        <label for="date" class="control-label">
+          Date
+        </label>
+
+        <input type="text" id="date" name="date" placeholder="Date" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for time -->
+      <div class="form-group">
+        <label for="time" class="control-label">
+          Time
+        </label>
+
+        <input type="text" id="time" name="time" placeholder="Time" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for is_closed -->
+      <div class="checkbox">
+        <label for="is_closed">
+          <input type="checkbox" id="is_closed" name="is_closed" value="1" <%= "checked" if @recruiting_event.is_closed %>>
+          Is closed
+        </label>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Recruiting Event
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -82,6 +149,83 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_interaction" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <%= select_tag(:user_id, options_from_collection_for_select(User.all, :id, :email), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for contact_id -->
+      <div class="form-group">
+        <label for="contact_id" class="control-label">
+          Contact
+        </label>
+
+        <%= select_tag(:contact_id, options_from_collection_for_select(Contact.all, :id, :first_name), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for setting_id -->
+      <input type="hidden" name="setting_id" value="<%= @setting.id %>">
+
+      <!-- Label and input for date -->
+      <div class="form-group">
+        <label for="date" class="control-label">
+          Date
+        </label>
+
+        <input type="text" id="date" name="date" placeholder="Date" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for recruiting_event_id -->
+      <div class="form-group">
+        <label for="recruiting_event_id" class="control-label">
+          Recruiting event
+        </label>
+
+        <%= select_tag(:recruiting_event_id, options_from_collection_for_select(RecruitingEvent.all, :id, :firm_id), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for time -->
+      <div class="form-group">
+        <label for="time" class="control-label">
+          Time
+        </label>
+
+        <input type="text" id="time" name="time" placeholder="Time" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for location -->
+      <div class="form-group">
+        <label for="location" class="control-label">
+          Location
+        </label>
+
+        <input type="text" id="location" name="location" placeholder="Location" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for notes -->
+      <div class="form-group">
+        <label for="notes" class="control-label">
+          Notes
+        </label>
+
+        <input type="text" id="notes" name="notes" placeholder="Notes" class="form-control" value="">
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Interaction
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

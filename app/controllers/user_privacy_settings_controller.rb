@@ -6,6 +6,7 @@ class UserPrivacySettingsController < ApplicationController
   end
 
   def show
+    @user = User.new
     @user_privacy_setting = UserPrivacySetting.find(params[:id])
 
     render("user_privacy_settings/show.html.erb")

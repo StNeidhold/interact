@@ -6,6 +6,7 @@ class FirmGroupsController < ApplicationController
   end
 
   def show
+    @contact = Contact.new
     @firm_group = FirmGroup.find(params[:id])
 
     render("firm_groups/show.html.erb")

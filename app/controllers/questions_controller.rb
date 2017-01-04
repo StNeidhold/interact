@@ -6,6 +6,8 @@ class QuestionsController < ApplicationController
   end
 
   def show
+    @user_question_bank = UserQuestionBank.new
+    @interaction_question = InteractionQuestion.new
     @question = Question.find(params[:id])
 
     render("questions/show.html.erb")

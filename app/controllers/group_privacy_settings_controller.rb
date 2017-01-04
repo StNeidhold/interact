@@ -6,6 +6,7 @@ class GroupPrivacySettingsController < ApplicationController
   end
 
   def show
+    @user_group = UserGroup.new
     @group_privacy_setting = GroupPrivacySetting.find(params[:id])
 
     render("group_privacy_settings/show.html.erb")

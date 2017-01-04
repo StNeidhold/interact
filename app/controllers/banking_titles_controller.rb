@@ -6,6 +6,7 @@ class BankingTitlesController < ApplicationController
   end
 
   def show
+    @contact = Contact.new
     @banking_title = BankingTitle.find(params[:id])
 
     render("banking_titles/show.html.erb")

@@ -6,6 +6,7 @@ class InteractionsController < ApplicationController
   end
 
   def show
+    @interaction_question = InteractionQuestion.new
     @interaction = Interaction.find(params[:id])
 
     render("interactions/show.html.erb")

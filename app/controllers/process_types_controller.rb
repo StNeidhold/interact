@@ -6,6 +6,7 @@ class ProcessTypesController < ApplicationController
   end
 
   def show
+    @firm = Firm.new
     @process_type = ProcessType.find(params[:id])
 
     render("process_types/show.html.erb")

@@ -57,6 +57,35 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_firm" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for process_type_id -->
+      <div class="form-group">
+        <label for="process_type_id" class="control-label">
+          Process type
+        </label>
+
+        <%= select_tag(:process_type_id, options_from_collection_for_select(ProcessType.all, :id, :process_type), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Firm
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

@@ -6,6 +6,13 @@ class FirmsController < ApplicationController
   end
 
   def show
+    @firm_recruiting_cycle = FirmRecruitingCycle.new
+    @contact = Contact.new
+    @recruiting_event = RecruitingEvent.new
+    @banking_title = BankingTitle.new
+    @office = Office.new
+    @firm_group = FirmGroup.new
+    @target_firm = TargetFirm.new
     @firm = Firm.find(params[:id])
 
     render("firms/show.html.erb")

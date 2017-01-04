@@ -6,6 +6,7 @@ class StatusesController < ApplicationController
   end
 
   def show
+    @user = User.new
     @status = Status.find(params[:id])
 
     render("statuses/show.html.erb")

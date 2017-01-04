@@ -6,6 +6,8 @@ class BusinessSchoolsController < ApplicationController
   end
 
   def show
+    @contact = Contact.new
+    @user = User.new
     @business_school = BusinessSchool.find(params[:id])
 
     render("business_schools/show.html.erb")

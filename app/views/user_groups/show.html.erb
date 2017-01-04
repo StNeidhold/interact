@@ -60,6 +60,29 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_group_join_request" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for user_group_id -->
+      <div class="form-group">
+        <label for="user_group_id" class="control-label">
+          User group
+        </label>
+
+        <%= select_tag(:user_group_id, options_from_collection_for_select(UserGroup.all, :id, :group_access_setting_id), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for user_id -->
+      <input type="hidden" name="user_id" value="<%= current_user.id %>">
+
+      <button class="btn btn-block btn-success">
+        Create Group Join Request
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -91,6 +114,43 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_user_group_member" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <%= select_tag(:user_id, options_from_collection_for_select(User.all, :id, :email), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for user_group_id -->
+      <div class="form-group">
+        <label for="user_group_id" class="control-label">
+          User group
+        </label>
+
+        <%= select_tag(:user_group_id, options_from_collection_for_select(UserGroup.all, :id, :group_access_setting_id), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for is_admin -->
+      <div class="checkbox">
+        <label for="is_admin">
+          <input type="checkbox" id="is_admin" name="is_admin" value="1" <%= "checked" if @user_group_member.is_admin %>>
+          Is admin
+        </label>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create User Group Member
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

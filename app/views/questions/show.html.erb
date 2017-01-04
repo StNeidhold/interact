@@ -54,6 +54,29 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_interaction_question" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for interaction_id -->
+      <div class="form-group">
+        <label for="interaction_id" class="control-label">
+          Interaction
+        </label>
+
+        <%= select_tag(:interaction_id, options_from_collection_for_select(Interaction.all, :id, :user_id), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for question_id -->
+      <input type="hidden" name="question_id" value="<%= @question.id %>">
+
+      <button class="btn btn-block btn-success">
+        Create Interaction Question
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -85,6 +108,29 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_user_question_bank" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <%= select_tag(:user_id, options_from_collection_for_select(User.all, :id, :email), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for question_id -->
+      <input type="hidden" name="question_id" value="<%= @question.id %>">
+
+      <button class="btn btn-block btn-success">
+        Create User Question Bank
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
