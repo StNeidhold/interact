@@ -18,8 +18,20 @@
       <% @cities.each do |city| %>
       <tr>
         <td><%= city.city_name %></td>
-        <td><%= city.city_state.state_name %></td>
-        <td><%= city.city_country.country_name %></td>
+        <td>
+          <% if city.city_state.present? %>
+            <a href="/us_states/<%= city.city_state.id %>">
+              <%= city.city_state.state_name %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if city.city_country.present? %>
+            <a href="/countries/<%= city.city_country.id %>">
+              <%= city.city_country.country_name %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/cities/<%= city.id %>" class="btn btn-primary">Show</a>
           <a href="/cities/<%= city.id %>/edit" class="btn btn-warning">Edit</a>

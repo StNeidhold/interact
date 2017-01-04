@@ -6,7 +6,13 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Group access setting</dt>
-      <dd><%= @user_group.group_access_setting_id %></dd>
+      <dd>
+        <% if @user_group.group_access_setting.present? %>
+          <a href="/group_access_settings/<%= @user_group.group_access_setting_id %>">
+            <%= @user_group.group_access_setting.acessibility %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Name</dt>
       <dd><%= @user_group.name %></dd>
@@ -15,7 +21,13 @@
       <dd><%= @user_group.description %></dd>
 
       <dt>Group privacy setting</dt>
-      <dd><%= @user_group.group_privacy_setting_id %></dd>
+      <dd>
+        <% if @user_group.group_privacy_setting.present? %>
+          <a href="/group_privacy_settings/<%= @user_group.group_privacy_setting_id %>">
+            <%= @user_group.group_privacy_setting.user_group_id %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

@@ -6,19 +6,43 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>User</dt>
-      <dd><%= @interaction.user_id %></dd>
+      <dd>
+        <% if @interaction.user.present? %>
+          <a href="/users/<%= @interaction.user_id %>">
+            <%= @interaction.user.email %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Contact</dt>
-      <dd><%= @interaction.contact_id %></dd>
+      <dd>
+        <% if @interaction.contact.present? %>
+          <a href="/contacts/<%= @interaction.contact_id %>">
+            <%= @interaction.contact.first_name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Setting</dt>
-      <dd><%= @interaction.setting_id %></dd>
+      <dd>
+        <% if @interaction.setting.present? %>
+          <a href="/settings/<%= @interaction.setting_id %>">
+            <%= @interaction.setting.name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Date</dt>
       <dd><%= @interaction.date %></dd>
 
       <dt>Recruiting event</dt>
-      <dd><%= @interaction.recruiting_event_id %></dd>
+      <dd>
+        <% if @interaction.recruiting_event.present? %>
+          <a href="/recruiting_events/<%= @interaction.recruiting_event_id %>">
+            <%= @interaction.recruiting_event.firm_id %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Time</dt>
       <dd><%= @interaction.time %></dd>

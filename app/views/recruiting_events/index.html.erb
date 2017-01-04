@@ -21,8 +21,20 @@
 
       <% @recruiting_events.each do |recruiting_event| %>
       <tr>
-        <td><%= recruiting_event.firm.name %></td>
-        <td><%= recruiting_event.setting.name %></td>
+        <td>
+          <% if recruiting_event.firm.present? %>
+            <a href="/firms/<%= recruiting_event.firm.id %>">
+              <%= recruiting_event.firm.name %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if recruiting_event.setting.present? %>
+            <a href="/settings/<%= recruiting_event.setting.id %>">
+              <%= recruiting_event.setting.name %>
+            </a>
+          <% end %>
+        </td>
         <td><%= recruiting_event.name %></td>
         <td><%= recruiting_event.location %></td>
         <td><%= recruiting_event.date %></td>

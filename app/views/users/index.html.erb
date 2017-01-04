@@ -23,11 +23,41 @@
       <tr>
         <td><%= user.email %></td>
         <td><%= user.password %></td>
-        <td><%= user.gender.gender %></td>
-        <td><%= user.college.college_name %></td>
-        <td><%= user.business_school.business_school_name %></td>
-        <td><%= user.status.status %></td>
-        <td><%= user.user_privacy_setting.user_id %></td>
+        <td>
+          <% if user.gender.present? %>
+            <a href="/genders/<%= user.gender.id %>">
+              <%= user.gender.gender %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if user.college.present? %>
+            <a href="/colleges/<%= user.college.id %>">
+              <%= user.college.college_name %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if user.business_school.present? %>
+            <a href="/business_schools/<%= user.business_school.id %>">
+              <%= user.business_school.business_school_name %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if user.status.present? %>
+            <a href="/statuses/<%= user.status.id %>">
+              <%= user.status.status %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if user.user_privacy_setting.present? %>
+            <a href="/user_privacy_settings/<%= user.user_privacy_setting.id %>">
+              <%= user.user_privacy_setting.user_id %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/users/<%= user.id %>" class="btn btn-primary">Show</a>
         </td>

@@ -16,7 +16,13 @@
 
       <% @firm_groups.each do |firm_group| %>
       <tr>
-        <td><%= firm_group.firm.name %></td>
+        <td>
+          <% if firm_group.firm.present? %>
+            <a href="/firms/<%= firm_group.firm.id %>">
+              <%= firm_group.firm.name %>
+            </a>
+          <% end %>
+        </td>
         <td><%= firm_group.group_name %></td>
         <td>
           <a href="/firm_groups/<%= firm_group.id %>" class="btn btn-primary">Show</a>

@@ -12,22 +12,58 @@
       <dd><%= @contact.last_name %></dd>
 
       <dt>Banking title</dt>
-      <dd><%= @contact.banking_title_id %></dd>
+      <dd>
+        <% if @contact.banking_title.present? %>
+          <a href="/banking_titles/<%= @contact.banking_title_id %>">
+            <%= @contact.banking_title.firm_id %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Firm</dt>
-      <dd><%= @contact.firm_id %></dd>
+      <dd>
+        <% if @contact.firm.present? %>
+          <a href="/firms/<%= @contact.firm_id %>">
+            <%= @contact.firm.name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Gender</dt>
-      <dd><%= @contact.gender_id %></dd>
+      <dd>
+        <% if @contact.gender.present? %>
+          <a href="/genders/<%= @contact.gender_id %>">
+            <%= @contact.gender.gender %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>College</dt>
-      <dd><%= @contact.college_id %></dd>
+      <dd>
+        <% if @contact.college.present? %>
+          <a href="/colleges/<%= @contact.college_id %>">
+            <%= @contact.college.college_name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Business school</dt>
-      <dd><%= @contact.business_school_id %></dd>
+      <dd>
+        <% if @contact.business_school.present? %>
+          <a href="/business_schools/<%= @contact.business_school_id %>">
+            <%= @contact.business_school.business_school_name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Firm group</dt>
-      <dd><%= @contact.firm_group_id %></dd>
+      <dd>
+        <% if @contact.firm_group.present? %>
+          <a href="/firm_groups/<%= @contact.firm_group_id %>">
+            <%= @contact.firm_group.firm_id %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

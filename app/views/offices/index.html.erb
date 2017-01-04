@@ -17,8 +17,20 @@
 
       <% @offices.each do |office| %>
       <tr>
-        <td><%= office.firm.name %></td>
-        <td><%= office.city.city_name %></td>
+        <td>
+          <% if office.firm.present? %>
+            <a href="/firms/<%= office.firm.id %>">
+              <%= office.firm.name %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if office.city.present? %>
+            <a href="/cities/<%= office.city.id %>">
+              <%= office.city.city_name %>
+            </a>
+          <% end %>
+        </td>
         <td><%= office.firm_hq %></td>
         <td>
           <a href="/offices/<%= office.id %>" class="btn btn-primary">Show</a>

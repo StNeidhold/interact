@@ -16,8 +16,20 @@
 
       <% @event_rsvps.each do |event_rsvp| %>
       <tr>
-        <td><%= event_rsvp.recruiting_event.firm_id %></td>
-        <td><%= event_rsvp.user.email %></td>
+        <td>
+          <% if event_rsvp.recruiting_event.present? %>
+            <a href="/recruiting_events/<%= event_rsvp.recruiting_event.id %>">
+              <%= event_rsvp.recruiting_event.firm_id %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if event_rsvp.user.present? %>
+            <a href="/users/<%= event_rsvp.user.id %>">
+              <%= event_rsvp.user.email %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/event_rsvps/<%= event_rsvp.id %>" class="btn btn-primary">Show</a>
           <a href="/event_rsvps/<%= event_rsvp.id %>/edit" class="btn btn-warning">Edit</a>

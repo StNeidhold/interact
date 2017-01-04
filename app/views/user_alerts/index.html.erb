@@ -16,7 +16,13 @@
 
       <% @user_alerts.each do |user_alert| %>
       <tr>
-        <td><%= user_alert.user.email %></td>
+        <td>
+          <% if user_alert.user.present? %>
+            <a href="/users/<%= user_alert.user.id %>">
+              <%= user_alert.user.email %>
+            </a>
+          <% end %>
+        </td>
         <td><%= user_alert.alert_text %></td>
         <td>
           <a href="/user_alerts/<%= user_alert.id %>" class="btn btn-primary">Show</a>

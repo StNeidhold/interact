@@ -16,8 +16,20 @@
 
       <% @group_join_requests.each do |group_join_request| %>
       <tr>
-        <td><%= group_join_request.user_group.group_access_setting_id %></td>
-        <td><%= group_join_request.user.email %></td>
+        <td>
+          <% if group_join_request.user_group.present? %>
+            <a href="/user_groups/<%= group_join_request.user_group.id %>">
+              <%= group_join_request.user_group.group_access_setting_id %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if group_join_request.user.present? %>
+            <a href="/users/<%= group_join_request.user.id %>">
+              <%= group_join_request.user.email %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/group_join_requests/<%= group_join_request.id %>" class="btn btn-primary">Show</a>
           

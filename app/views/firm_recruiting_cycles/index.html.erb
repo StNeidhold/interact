@@ -17,7 +17,13 @@
 
       <% @firm_recruiting_cycles.each do |firm_recruiting_cycle| %>
       <tr>
-        <td><%= firm_recruiting_cycle.firm.name %></td>
+        <td>
+          <% if firm_recruiting_cycle.firm.present? %>
+            <a href="/firms/<%= firm_recruiting_cycle.firm.id %>">
+              <%= firm_recruiting_cycle.firm.name %>
+            </a>
+          <% end %>
+        </td>
         <td><%= firm_recruiting_cycle.first_round_start %></td>
         <td><%= firm_recruiting_cycle.superday_start %></td>
         <td>

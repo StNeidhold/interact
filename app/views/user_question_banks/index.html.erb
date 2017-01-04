@@ -16,8 +16,20 @@
 
       <% @user_question_banks.each do |user_question_bank| %>
       <tr>
-        <td><%= user_question_bank.user.email %></td>
-        <td><%= user_question_bank.question.stem %></td>
+        <td>
+          <% if user_question_bank.user.present? %>
+            <a href="/users/<%= user_question_bank.user.id %>">
+              <%= user_question_bank.user.email %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if user_question_bank.question.present? %>
+            <a href="/questions/<%= user_question_bank.question.id %>">
+              <%= user_question_bank.question.stem %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/user_question_banks/<%= user_question_bank.id %>" class="btn btn-primary">Show</a>
           <a href="/user_question_banks/<%= user_question_bank.id %>/edit" class="btn btn-warning">Edit</a>

@@ -9,7 +9,13 @@
       <dd><%= @firm.name %></dd>
 
       <dt>Process type</dt>
-      <dd><%= @firm.process_type_id %></dd>
+      <dd>
+        <% if @firm.process_type.present? %>
+          <a href="/process_types/<%= @firm.process_type_id %>">
+            <%= @firm.process_type.process_type %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

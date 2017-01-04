@@ -22,11 +22,35 @@
 
       <% @interactions.each do |interaction| %>
       <tr>
-        <td><%= interaction.user.email %></td>
-        <td><%= interaction.contact.first_name %></td>
-        <td><%= interaction.setting.name %></td>
+        <td>
+          <% if interaction.user.present? %>
+            <a href="/users/<%= interaction.user.id %>">
+              <%= interaction.user.email %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if interaction.contact.present? %>
+            <a href="/contacts/<%= interaction.contact.id %>">
+              <%= interaction.contact.first_name %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if interaction.setting.present? %>
+            <a href="/settings/<%= interaction.setting.id %>">
+              <%= interaction.setting.name %>
+            </a>
+          <% end %>
+        </td>
         <td><%= interaction.date %></td>
-        <td><%= interaction.recruiting_event.firm_id %></td>
+        <td>
+          <% if interaction.recruiting_event.present? %>
+            <a href="/recruiting_events/<%= interaction.recruiting_event.id %>">
+              <%= interaction.recruiting_event.firm_id %>
+            </a>
+          <% end %>
+        </td>
         <td><%= interaction.time %></td>
         <td><%= interaction.location %></td>
         <td><%= interaction.notes %></td>

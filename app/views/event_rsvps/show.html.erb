@@ -6,10 +6,22 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Recruiting event</dt>
-      <dd><%= @event_rsvp.recruiting_event_id %></dd>
+      <dd>
+        <% if @event_rsvp.recruiting_event.present? %>
+          <a href="/recruiting_events/<%= @event_rsvp.recruiting_event_id %>">
+            <%= @event_rsvp.recruiting_event.firm_id %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>User</dt>
-      <dd><%= @event_rsvp.user_id %></dd>
+      <dd>
+        <% if @event_rsvp.user.present? %>
+          <a href="/users/<%= @event_rsvp.user_id %>">
+            <%= @event_rsvp.user.email %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

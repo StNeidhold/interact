@@ -6,7 +6,13 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Firm</dt>
-      <dd><%= @banking_title.firm_id %></dd>
+      <dd>
+        <% if @banking_title.firm.present? %>
+          <a href="/firms/<%= @banking_title.firm_id %>">
+            <%= @banking_title.firm.name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Title</dt>
       <dd><%= @banking_title.title %></dd>

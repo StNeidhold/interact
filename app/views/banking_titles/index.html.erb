@@ -16,7 +16,13 @@
 
       <% @banking_titles.each do |banking_title| %>
       <tr>
-        <td><%= banking_title.firm.name %></td>
+        <td>
+          <% if banking_title.firm.present? %>
+            <a href="/firms/<%= banking_title.firm.id %>">
+              <%= banking_title.firm.name %>
+            </a>
+          <% end %>
+        </td>
         <td><%= banking_title.title %></td>
         <td>
           <a href="/banking_titles/<%= banking_title.id %>" class="btn btn-primary">Show</a>

@@ -6,7 +6,13 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Firm</dt>
-      <dd><%= @firm_recruiting_cycle.firm_id %></dd>
+      <dd>
+        <% if @firm_recruiting_cycle.firm.present? %>
+          <a href="/firms/<%= @firm_recruiting_cycle.firm_id %>">
+            <%= @firm_recruiting_cycle.firm.name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>First round start</dt>
       <dd><%= @firm_recruiting_cycle.first_round_start %></dd>

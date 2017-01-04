@@ -6,10 +6,22 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Firm</dt>
-      <dd><%= @office.firm_id %></dd>
+      <dd>
+        <% if @office.firm.present? %>
+          <a href="/firms/<%= @office.firm_id %>">
+            <%= @office.firm.name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>City</dt>
-      <dd><%= @office.city_id %></dd>
+      <dd>
+        <% if @office.city.present? %>
+          <a href="/cities/<%= @office.city_id %>">
+            <%= @office.city.city_name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Firm hq</dt>
       <dd><%= @office.firm_hq %></dd>

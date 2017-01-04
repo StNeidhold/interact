@@ -12,19 +12,49 @@
       <dd><%= @user.password %></dd>
 
       <dt>Gender</dt>
-      <dd><%= @user.gender_id %></dd>
+      <dd>
+        <% if @user.gender.present? %>
+          <a href="/genders/<%= @user.gender_id %>">
+            <%= @user.gender.gender %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>College</dt>
-      <dd><%= @user.college_id %></dd>
+      <dd>
+        <% if @user.college.present? %>
+          <a href="/colleges/<%= @user.college_id %>">
+            <%= @user.college.college_name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Business school</dt>
-      <dd><%= @user.business_school_id %></dd>
+      <dd>
+        <% if @user.business_school.present? %>
+          <a href="/business_schools/<%= @user.business_school_id %>">
+            <%= @user.business_school.business_school_name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Status</dt>
-      <dd><%= @user.status_id %></dd>
+      <dd>
+        <% if @user.status.present? %>
+          <a href="/statuses/<%= @user.status_id %>">
+            <%= @user.status.status %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>User privacy setting</dt>
-      <dd><%= @user.user_privacy_setting_id %></dd>
+      <dd>
+        <% if @user.user_privacy_setting.present? %>
+          <a href="/user_privacy_settings/<%= @user.user_privacy_setting_id %>">
+            <%= @user.user_privacy_setting.user_id %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

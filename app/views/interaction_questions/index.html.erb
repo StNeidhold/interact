@@ -16,8 +16,20 @@
 
       <% @interaction_questions.each do |interaction_question| %>
       <tr>
-        <td><%= interaction_question.interaction.user_id %></td>
-        <td><%= interaction_question.question.stem %></td>
+        <td>
+          <% if interaction_question.interaction.present? %>
+            <a href="/interactions/<%= interaction_question.interaction.id %>">
+              <%= interaction_question.interaction.user_id %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if interaction_question.question.present? %>
+            <a href="/questions/<%= interaction_question.question.id %>">
+              <%= interaction_question.question.stem %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/interaction_questions/<%= interaction_question.id %>" class="btn btn-primary">Show</a>
           <a href="/interaction_questions/<%= interaction_question.id %>/edit" class="btn btn-warning">Edit</a>

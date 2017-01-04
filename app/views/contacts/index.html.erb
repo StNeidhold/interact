@@ -24,12 +24,48 @@
       <tr>
         <td><%= contact.first_name %></td>
         <td><%= contact.last_name %></td>
-        <td><%= contact.banking_title.firm_id %></td>
-        <td><%= contact.firm.name %></td>
-        <td><%= contact.gender.gender %></td>
-        <td><%= contact.college.college_name %></td>
-        <td><%= contact.business_school.business_school_name %></td>
-        <td><%= contact.firm_group.firm_id %></td>
+        <td>
+          <% if contact.banking_title.present? %>
+            <a href="/banking_titles/<%= contact.banking_title.id %>">
+              <%= contact.banking_title.firm_id %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if contact.firm.present? %>
+            <a href="/firms/<%= contact.firm.id %>">
+              <%= contact.firm.name %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if contact.gender.present? %>
+            <a href="/genders/<%= contact.gender.id %>">
+              <%= contact.gender.gender %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if contact.college.present? %>
+            <a href="/colleges/<%= contact.college.id %>">
+              <%= contact.college.college_name %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if contact.business_school.present? %>
+            <a href="/business_schools/<%= contact.business_school.id %>">
+              <%= contact.business_school.business_school_name %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if contact.firm_group.present? %>
+            <a href="/firm_groups/<%= contact.firm_group.id %>">
+              <%= contact.firm_group.firm_id %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/contacts/<%= contact.id %>" class="btn btn-primary">Show</a>
           <a href="/contacts/<%= contact.id %>/edit" class="btn btn-warning">Edit</a>

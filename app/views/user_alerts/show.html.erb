@@ -6,7 +6,13 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>User</dt>
-      <dd><%= @user_alert.user_id %></dd>
+      <dd>
+        <% if @user_alert.user.present? %>
+          <a href="/users/<%= @user_alert.user_id %>">
+            <%= @user_alert.user.email %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Alert text</dt>
       <dd><%= @user_alert.alert_text %></dd>
