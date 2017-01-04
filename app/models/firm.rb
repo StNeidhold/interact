@@ -1,6 +1,9 @@
 class Firm < ApplicationRecord
   # Direct associations
 
+  has_many   :contacts,
+             :dependent => :nullify
+
   has_many   :recruiting_events,
              :dependent => :destroy
 
