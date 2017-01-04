@@ -1,5 +1,7 @@
 ActiveAdmin.register User do
 
+ permit_params :email, :password, :gender_id, :college_id, :business_school_id, :status_id, :user_privacy_setting_id
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
