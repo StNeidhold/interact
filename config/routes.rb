@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Group_access_setting resource:
+  # CREATE
+  get "/group_access_settings/new", :controller => "group_access_settings", :action => "new"
+  post "/create_group_access_setting", :controller => "group_access_settings", :action => "create"
+
+  # READ
+  get "/group_access_settings", :controller => "group_access_settings", :action => "index"
+  get "/group_access_settings/:id", :controller => "group_access_settings", :action => "show"
+
+  # UPDATE
+  get "/group_access_settings/:id/edit", :controller => "group_access_settings", :action => "edit"
+  post "/update_group_access_setting/:id", :controller => "group_access_settings", :action => "update"
+
+  # DELETE
+  get "/delete_group_access_setting/:id", :controller => "group_access_settings", :action => "destroy"
+  #------------------------------
+
   # Routes for the Status resource:
   # CREATE
   get "/statuses/new", :controller => "statuses", :action => "new"

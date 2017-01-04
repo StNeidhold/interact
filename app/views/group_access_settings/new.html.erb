@@ -1,0 +1,46 @@
+<!-- Validation failure messages -->
+<% if @group_access_setting.errors.any? %>
+  <% @group_access_setting.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Group Access Setting</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_group_access_setting" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for acessibility -->
+      <div class="form-group">
+        <label for="acessibility" class="control-label">
+          Acessibility
+        </label>
+
+        <input type="text" id="acessibility" name="acessibility" placeholder="Acessibility" class="form-control" value="<%= @group_access_setting.acessibility %>">
+      </div>
+
+      <!-- Label and input for visibility -->
+      <div class="form-group">
+        <label for="visibility" class="control-label">
+          Visibility
+        </label>
+
+        <input type="text" id="visibility" name="visibility" placeholder="Visibility" class="form-control" value="<%= @group_access_setting.visibility %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Group Access Setting
+      </button>
+      or
+      <a href="/group_access_settings">Cancel</a>
+    </form>
+  </div>
+</div>
