@@ -18,7 +18,7 @@
       <% @offices.each do |office| %>
       <tr>
         <td><%= office.firm.name %></td>
-        <td><%= office.city_id %></td>
+        <td><%= office.city.city_name %></td>
         <td><%= office.firm_hq %></td>
         <td>
           <a href="/offices/<%= office.id %>" class="btn btn-primary">Show</a>
