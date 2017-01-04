@@ -21,7 +21,7 @@
 
       <% @recruiting_events.each do |recruiting_event| %>
       <tr>
-        <td><%= recruiting_event.firm_id %></td>
+        <td><%= recruiting_event.firm.name %></td>
         <td><%= recruiting_event.setting_id %></td>
         <td><%= recruiting_event.name %></td>
         <td><%= recruiting_event.location %></td>
