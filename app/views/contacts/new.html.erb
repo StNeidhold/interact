@@ -1,0 +1,100 @@
+<!-- Validation failure messages -->
+<% if @contact.errors.any? %>
+  <% @contact.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Contact</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_contact" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for first_name -->
+      <div class="form-group">
+        <label for="first_name" class="control-label">
+          First name
+        </label>
+
+        <input type="text" id="first_name" name="first_name" placeholder="First name" class="form-control" value="<%= @contact.first_name %>">
+      </div>
+
+      <!-- Label and input for last_name -->
+      <div class="form-group">
+        <label for="last_name" class="control-label">
+          Last name
+        </label>
+
+        <input type="text" id="last_name" name="last_name" placeholder="Last name" class="form-control" value="<%= @contact.last_name %>">
+      </div>
+
+      <!-- Label and input for banking_title_id -->
+      <div class="form-group">
+        <label for="banking_title_id" class="control-label">
+          Banking title
+        </label>
+
+        <input type="text" id="banking_title_id" name="banking_title_id" placeholder="Banking title" class="form-control" value="<%= @contact.banking_title_id %>">
+      </div>
+
+      <!-- Label and input for firm_id -->
+      <div class="form-group">
+        <label for="firm_id" class="control-label">
+          Firm
+        </label>
+
+        <input type="text" id="firm_id" name="firm_id" placeholder="Firm" class="form-control" value="<%= @contact.firm_id %>">
+      </div>
+
+      <!-- Label and input for gender_id -->
+      <div class="form-group">
+        <label for="gender_id" class="control-label">
+          Gender
+        </label>
+
+        <input type="text" id="gender_id" name="gender_id" placeholder="Gender" class="form-control" value="<%= @contact.gender_id %>">
+      </div>
+
+      <!-- Label and input for college_id -->
+      <div class="form-group">
+        <label for="college_id" class="control-label">
+          College
+        </label>
+
+        <input type="text" id="college_id" name="college_id" placeholder="College" class="form-control" value="<%= @contact.college_id %>">
+      </div>
+
+      <!-- Label and input for business_school_id -->
+      <div class="form-group">
+        <label for="business_school_id" class="control-label">
+          Business school
+        </label>
+
+        <input type="text" id="business_school_id" name="business_school_id" placeholder="Business school" class="form-control" value="<%= @contact.business_school_id %>">
+      </div>
+
+      <!-- Label and input for firm_group_id -->
+      <div class="form-group">
+        <label for="firm_group_id" class="control-label">
+          Firm group
+        </label>
+
+        <input type="text" id="firm_group_id" name="firm_group_id" placeholder="Firm group" class="form-control" value="<%= @contact.firm_group_id %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Contact
+      </button>
+      or
+      <a href="/contacts">Cancel</a>
+    </form>
+  </div>
+</div>

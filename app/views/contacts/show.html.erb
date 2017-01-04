@@ -1,0 +1,46 @@
+<div class="page-header">
+  <h3>Contact #<%= @contact.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>First name</dt>
+      <dd><%= @contact.first_name %></dd>
+
+      <dt>Last name</dt>
+      <dd><%= @contact.last_name %></dd>
+
+      <dt>Banking title</dt>
+      <dd><%= @contact.banking_title_id %></dd>
+
+      <dt>Firm</dt>
+      <dd><%= @contact.firm_id %></dd>
+
+      <dt>Gender</dt>
+      <dd><%= @contact.gender_id %></dd>
+
+      <dt>College</dt>
+      <dd><%= @contact.college_id %></dd>
+
+      <dt>Business school</dt>
+      <dd><%= @contact.business_school_id %></dd>
+
+      <dt>Firm group</dt>
+      <dd><%= @contact.firm_group_id %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/contacts" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/contacts/<%= @contact.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_contact/<%= @contact.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>
