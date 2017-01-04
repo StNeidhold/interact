@@ -78,7 +78,7 @@
           Business school
         </label>
 
-        <input type="text" id="business_school_id" name="business_school_id" placeholder="Business school" class="form-control" value="<%= @contact.business_school_id %>">
+        <%= select_tag(:business_school_id, options_from_collection_for_select(BusinessSchool.all, :id, :business_school_name, @contact.business_school_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for firm_group_id -->
