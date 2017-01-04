@@ -1,0 +1,55 @@
+<!-- Validation failure messages -->
+<% if @process_type.errors.any? %>
+  <% @process_type.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Process Type #<%= @process_type.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_process_type/<%= @process_type.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for process_type -->
+      <div class="form-group">
+        <label for="process_type" class="control-label">
+          Process type
+        </label>
+
+        <input type="text" id="process_type" name="process_type" placeholder="Process type" class="form-control" value="<%= @process_type.process_type %>">
+      </div>
+
+      <!-- Label and input for high_end -->
+      <div class="form-group">
+        <label for="high_end" class="control-label">
+          High end
+        </label>
+
+        <input type="text" id="high_end" name="high_end" placeholder="High end" class="form-control" value="<%= @process_type.high_end %>">
+      </div>
+
+      <!-- Label and input for low_end -->
+      <div class="form-group">
+        <label for="low_end" class="control-label">
+          Low end
+        </label>
+
+        <input type="text" id="low_end" name="low_end" placeholder="Low end" class="form-control" value="<%= @process_type.low_end %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Process Type
+      </button>
+      or
+      <a href="/process_types/<%= @process_type.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

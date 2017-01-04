@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Process_type resource:
+  # CREATE
+  get "/process_types/new", :controller => "process_types", :action => "new"
+  post "/create_process_type", :controller => "process_types", :action => "create"
+
+  # READ
+  get "/process_types", :controller => "process_types", :action => "index"
+  get "/process_types/:id", :controller => "process_types", :action => "show"
+
+  # UPDATE
+  get "/process_types/:id/edit", :controller => "process_types", :action => "edit"
+  post "/update_process_type/:id", :controller => "process_types", :action => "update"
+
+  # DELETE
+  get "/delete_process_type/:id", :controller => "process_types", :action => "destroy"
+  #------------------------------
+
   # Routes for the College resource:
   # CREATE
   get "/colleges/new", :controller => "colleges", :action => "new"
