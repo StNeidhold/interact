@@ -1,0 +1,30 @@
+<div class="page-header">
+  <h1>
+    Interaction questions
+    <a href="/interaction_questions/new" class="btn btn-lg btn-success">New Interaction question</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Interaction</th>
+        <th>Question</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @interaction_questions.each do |interaction_question| %>
+      <tr>
+        <td><%= interaction_question.interaction_id %></td>
+        <td><%= interaction_question.question_id %></td>
+        <td>
+          <a href="/interaction_questions/<%= interaction_question.id %>" class="btn btn-primary">Show</a>
+          <a href="/interaction_questions/<%= interaction_question.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_interaction_question/<%= interaction_question.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

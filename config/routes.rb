@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Interaction_question resource:
+  # CREATE
+  get "/interaction_questions/new", :controller => "interaction_questions", :action => "new"
+  post "/create_interaction_question", :controller => "interaction_questions", :action => "create"
+
+  # READ
+  get "/interaction_questions", :controller => "interaction_questions", :action => "index"
+  get "/interaction_questions/:id", :controller => "interaction_questions", :action => "show"
+
+  # UPDATE
+  get "/interaction_questions/:id/edit", :controller => "interaction_questions", :action => "edit"
+  post "/update_interaction_question/:id", :controller => "interaction_questions", :action => "update"
+
+  # DELETE
+  get "/delete_interaction_question/:id", :controller => "interaction_questions", :action => "destroy"
+  #------------------------------
+
   # Routes for the Question resource:
   # CREATE
   get "/questions/new", :controller => "questions", :action => "new"

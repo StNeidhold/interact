@@ -1,0 +1,28 @@
+<div class="page-header">
+  <h3>Interaction Question #<%= @interaction_question.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Interaction</dt>
+      <dd><%= @interaction_question.interaction_id %></dd>
+
+      <dt>Question</dt>
+      <dd><%= @interaction_question.question_id %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/interaction_questions" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/interaction_questions/<%= @interaction_question.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_interaction_question/<%= @interaction_question.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>
