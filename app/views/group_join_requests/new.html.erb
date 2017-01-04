@@ -24,7 +24,7 @@
           User group
         </label>
 
-        <input type="text" id="user_group_id" name="user_group_id" placeholder="User group" class="form-control" value="<%= @group_join_request.user_group_id %>">
+        <%= select_tag(:user_group_id, options_from_collection_for_select(UserGroup.all, :id, :group_access_setting_id, @group_join_request.user_group_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for user_id -->
