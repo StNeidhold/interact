@@ -17,7 +17,7 @@
       <% @event_rsvps.each do |event_rsvp| %>
       <tr>
         <td><%= event_rsvp.recruiting_event.firm_id %></td>
-        <td><%= event_rsvp.user_id %></td>
+        <td><%= event_rsvp.user.email %></td>
         <td>
           <a href="/event_rsvps/<%= event_rsvp.id %>" class="btn btn-primary">Show</a>
           <a href="/event_rsvps/<%= event_rsvp.id %>/edit" class="btn btn-warning">Edit</a>
