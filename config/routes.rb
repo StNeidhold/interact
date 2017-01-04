@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Group_join_request resource:
+  # CREATE
+  get "/group_join_requests/new", :controller => "group_join_requests", :action => "new"
+  post "/create_group_join_request", :controller => "group_join_requests", :action => "create"
+
+  # READ
+  get "/group_join_requests", :controller => "group_join_requests", :action => "index"
+  get "/group_join_requests/:id", :controller => "group_join_requests", :action => "show"
+
+  # UPDATE
+  get "/group_join_requests/:id/edit", :controller => "group_join_requests", :action => "edit"
+  post "/update_group_join_request/:id", :controller => "group_join_requests", :action => "update"
+
+  # DELETE
+  get "/delete_group_join_request/:id", :controller => "group_join_requests", :action => "destroy"
+  #------------------------------
+
   # Routes for the Group_access_setting resource:
   # CREATE
   get "/group_access_settings/new", :controller => "group_access_settings", :action => "new"

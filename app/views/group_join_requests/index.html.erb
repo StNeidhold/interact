@@ -1,0 +1,30 @@
+<div class="page-header">
+  <h1>
+    Group join requests
+    <a href="/group_join_requests/new" class="btn btn-lg btn-success">New Group join request</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>User group</th>
+        <th>User</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @group_join_requests.each do |group_join_request| %>
+      <tr>
+        <td><%= group_join_request.user_group_id %></td>
+        <td><%= group_join_request.user_id %></td>
+        <td>
+          <a href="/group_join_requests/<%= group_join_request.id %>" class="btn btn-primary">Show</a>
+          <a href="/group_join_requests/<%= group_join_request.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_group_join_request/<%= group_join_request.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

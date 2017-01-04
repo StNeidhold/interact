@@ -1,0 +1,46 @@
+<!-- Validation failure messages -->
+<% if @group_join_request.errors.any? %>
+  <% @group_join_request.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Group Join Request #<%= @group_join_request.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_group_join_request/<%= @group_join_request.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for user_group_id -->
+      <div class="form-group">
+        <label for="user_group_id" class="control-label">
+          User group
+        </label>
+
+        <input type="text" id="user_group_id" name="user_group_id" placeholder="User group" class="form-control" value="<%= @group_join_request.user_group_id %>">
+      </div>
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @group_join_request.user_id %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Group Join Request
+      </button>
+      or
+      <a href="/group_join_requests/<%= @group_join_request.id %>">Cancel</a>
+    </form>
+  </div>
+</div>
