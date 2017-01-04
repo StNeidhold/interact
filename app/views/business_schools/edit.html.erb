@@ -1,0 +1,37 @@
+<!-- Validation failure messages -->
+<% if @business_school.errors.any? %>
+  <% @business_school.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Business School #<%= @business_school.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_business_school/<%= @business_school.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for business_school_name -->
+      <div class="form-group">
+        <label for="business_school_name" class="control-label">
+          Business school name
+        </label>
+
+        <input type="text" id="business_school_name" name="business_school_name" placeholder="Business school name" class="form-control" value="<%= @business_school.business_school_name %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Business School
+      </button>
+      or
+      <a href="/business_schools/<%= @business_school.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

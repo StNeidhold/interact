@@ -1,0 +1,28 @@
+<div class="page-header">
+  <h1>
+    Business schools
+    <a href="/business_schools/new" class="btn btn-lg btn-success">New Business school</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Business school name</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @business_schools.each do |business_school| %>
+      <tr>
+        <td><%= business_school.business_school_name %></td>
+        <td>
+          <a href="/business_schools/<%= business_school.id %>" class="btn btn-primary">Show</a>
+          <a href="/business_schools/<%= business_school.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_business_school/<%= business_school.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

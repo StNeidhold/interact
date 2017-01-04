@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Business_school resource:
+  # CREATE
+  get "/business_schools/new", :controller => "business_schools", :action => "new"
+  post "/create_business_school", :controller => "business_schools", :action => "create"
+
+  # READ
+  get "/business_schools", :controller => "business_schools", :action => "index"
+  get "/business_schools/:id", :controller => "business_schools", :action => "show"
+
+  # UPDATE
+  get "/business_schools/:id/edit", :controller => "business_schools", :action => "edit"
+  post "/update_business_school/:id", :controller => "business_schools", :action => "update"
+
+  # DELETE
+  get "/delete_business_school/:id", :controller => "business_schools", :action => "destroy"
+  #------------------------------
+
   # Routes for the Banking_title resource:
   # CREATE
   get "/banking_titles/new", :controller => "banking_titles", :action => "new"
