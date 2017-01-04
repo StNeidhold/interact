@@ -1,6 +1,8 @@
 class Contact < ApplicationRecord
   # Direct associations
 
+  belongs_to :college
+
   belongs_to :business_school
 
   belongs_to :banking_title
