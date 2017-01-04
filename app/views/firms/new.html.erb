@@ -33,7 +33,7 @@
           Process type
         </label>
 
-        <input type="text" id="process_type_id" name="process_type_id" placeholder="Process type" class="form-control" value="<%= @firm.process_type_id %>">
+        <%= select_tag(:process_type_id, options_from_collection_for_select(ProcessType.all, :id, :process_type, @firm.process_type_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-success">
