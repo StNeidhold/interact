@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   # Direct associations
 
+  has_many   :event_rsvps,
+             :dependent => :destroy
+
   has_many   :user_alerts,
              :dependent => :destroy
 
