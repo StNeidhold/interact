@@ -19,7 +19,7 @@
 
       <% @user_recruiting_cycles.each do |user_recruiting_cycle| %>
       <tr>
-        <td><%= user_recruiting_cycle.user_id %></td>
+        <td><%= user_recruiting_cycle.user.email %></td>
         <td><%= user_recruiting_cycle.start_date %></td>
         <td><%= user_recruiting_cycle.end_date %></td>
         <td><%= user_recruiting_cycle.name %></td>
