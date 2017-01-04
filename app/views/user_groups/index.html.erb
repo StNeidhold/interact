@@ -18,7 +18,7 @@
 
       <% @user_groups.each do |user_group| %>
       <tr>
-        <td><%= user_group.group_access_setting_id %></td>
+        <td><%= user_group.group_access_setting.acessibility %></td>
         <td><%= user_group.name %></td>
         <td><%= user_group.description %></td>
         <td><%= user_group.group_privacy_setting_id %></td>
