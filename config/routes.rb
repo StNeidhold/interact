@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Gender resource:
+  # CREATE
+  get "/genders/new", :controller => "genders", :action => "new"
+  post "/create_gender", :controller => "genders", :action => "create"
+
+  # READ
+  get "/genders", :controller => "genders", :action => "index"
+  get "/genders/:id", :controller => "genders", :action => "show"
+
+  # UPDATE
+  get "/genders/:id/edit", :controller => "genders", :action => "edit"
+  post "/update_gender/:id", :controller => "genders", :action => "update"
+
+  # DELETE
+  get "/delete_gender/:id", :controller => "genders", :action => "destroy"
+  #------------------------------
+
   # Routes for the Setting resource:
   # CREATE
   get "/settings/new", :controller => "settings", :action => "new"
